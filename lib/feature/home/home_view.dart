@@ -1,5 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:lifttracker/feature/widgets/workout_editor_container.dart';
+import 'package:lifttracker/product/constants/enums/padding_enums.dart';
 
 /// Home screen class
 @RoutePage()
@@ -9,11 +11,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Lift Tracker"),
-      ),
-      body: Column(children: []),
-    );
+    return Text('asd');
   }
 }

@@ -8,7 +8,7 @@ void main() {
 
 /// MainApp Widget
 final class _MyApp extends StatelessWidget {
-  /// mainApp constructer
+  /// mainApp constructor
   const _MyApp();
 
   static final _appRouter = AppRouter();

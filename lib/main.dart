@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:lifttracker/feature/home/home_view.dart';
 import 'package:lifttracker/product/init/theme/dark_theme.dart';
 import 'package:lifttracker/product/navigation/app_router.dart';
 
 void main() {
-  runApp(_MyApp());
+  runApp(const _MyApp());
 }
 
 /// MainApp Widget

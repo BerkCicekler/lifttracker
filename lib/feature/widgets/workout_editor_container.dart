@@ -12,17 +12,25 @@ class WorkOutEditorContainer extends StatelessWidget {
     return Container(
       width: width * 0.95,
       height: 150,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(8)),
         color: Color(0xFF33363b),
       ),
       padding: EdgeInsets.all(PaddingConstants.small.value),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Leg Curl",
-            style: TextStyle(fontSize: 25),
+            'Leg Curl',
+            style: TextStyle(fontSize: 25, fontFamily: 'RobotoBlack'),
+          ),
+          Row(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [Text('Weight'), Text('rep')],
+              )
+            ],
           )
         ],
       ),

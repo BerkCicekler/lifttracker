@@ -8,7 +8,9 @@ final class CustomDarkTheme {
   static final ThemeData theme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
+    primaryColor: Colors.orange,
     colorScheme: const ColorScheme.dark(
+      primary: Color(0xFFdefb13),
       background: Color(0xFF1c2125),
       surface: Color(0xFF272c30),
     ),

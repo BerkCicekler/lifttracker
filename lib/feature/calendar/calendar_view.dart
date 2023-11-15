@@ -1,44 +1,47 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:lifttracker/feature/calendar/calendar_mixin.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 /// Home screen class
 @RoutePage()
 class CalendarView extends StatefulWidget {
-  /// Home screen constructer
-  CalendarView({super.key});
+  /// Home screen constructor
+  const CalendarView({super.key});
 
   @override
   State<CalendarView> createState() => _CalendarViewState();
 }
 
-class _CalendarViewState extends State<CalendarView> {
-  DateTime _selectedDate = DateTime.now();
-
-  DateTime _focusedDate = DateTime.now();
-
-  void _onDaySelected(DateTime selectedDay, DateTime focusedDate) {
-    print(focusedDate);
-    print(selectedDay);
-    _selectedDate = selectedDay;
-    _focusedDate = focusedDate;
-    setState(() {});
-  }
-
+class _CalendarViewState extends State<CalendarView> with CalendarMixin {
   @override
   Widget build(BuildContext context) {
-    print('rebuild');
     return Center(
       child: Column(
         children: [
+          // ignore: inference_failure_on_instance_creation
           TableCalendar(
-            headerStyle:
-                HeaderStyle(titleCentered: true, formatButtonVisible: false),
-            selectedDayPredicate: (day) => isSameDay(day, _selectedDate),
-            onDaySelected: _onDaySelected,
-            focusedDay: _focusedDate,
+            calendarStyle: const CalendarStyle(
+              todayDecoration: BoxDecoration(
+                color: Color.fromARGB(122, 220, 251, 19),
+                shape: BoxShape.circle,
+              ),
+              selectedDecoration: BoxDecoration(
+                color: Color.fromARGB(166, 220, 251, 19),
+                shape: BoxShape.circle,
+              ),
+            ),
+            headerStyle: const HeaderStyle(
+              titleCentered: true,
+              formatButtonVisible: false,
+            ),
+            pageJumpingEnabled: true,
+            selectedDayPredicate: (day) => isSameDay(day, selectedDate),
+            onDaySelected: onDaySelected,
+            focusedDay: focusedDate,
+            onHeaderTapped: onCalendarHeaderTap,
             firstDay: DateTime(2020),
-            lastDay: DateTime.now(),
+            lastDay: DateTime(DateTime.now().year + 1),
           ),
         ],
       ),

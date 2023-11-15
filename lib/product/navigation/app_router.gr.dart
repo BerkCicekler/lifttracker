@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    CalendarRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: CalendarView(),
+      );
+    },
     DashBoardRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -34,6 +40,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [CalendarView]
+class CalendarRoute extends PageRouteInfo<void> {
+  const CalendarRoute({List<PageRouteInfo>? children})
+      : super(
+          CalendarRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CalendarRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

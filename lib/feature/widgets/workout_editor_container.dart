@@ -11,29 +11,140 @@ class WorkOutEditorContainer extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       width: width * 0.95,
-      height: 150,
+      height: 200,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(8)),
         color: Color(0xFF33363b),
       ),
       padding: EdgeInsets.all(PaddingConstants.small.value),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Leg Curl',
             style: TextStyle(fontSize: 25, fontFamily: 'RobotoBlack'),
           ),
-          Row(
+          Table(
+            columnWidths: {
+              0: FixedColumnWidth(40),
+            },
+            border: TableBorder.all(color: Colors.white30),
+            defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [Text('Weight'), Text('rep')],
-              )
+              const TableRow(
+                decoration:
+                    BoxDecoration(color: Color.fromARGB(179, 100, 100, 100)),
+                children: [
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Set'),
+                    ),
+                  ),
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: Center(child: Text('finish')),
+                  ),
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: Center(child: Text('Weight')),
+                  ),
+                  TableCell(
+                    verticalAlignment: TableCellVerticalAlignment.middle,
+                    child: Center(child: Text('Rep Count')),
+                  ),
+                ],
+              ),
+              ...List.generate(
+                3,
+                (index) => const TableRow(
+                  children: [
+                    TableCell(
+                      verticalAlignment: TableCellVerticalAlignment.middle,
+                      child: Padding(
+                        padding: EdgeInsets.all(2.0),
+                        child: Center(child: Text('1')),
+                      ),
+                    ),
+                    TableCell(
+                      verticalAlignment: TableCellVerticalAlignment.middle,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('5'),
+                      ),
+                    ),
+                    TableCell(
+                      verticalAlignment: TableCellVerticalAlignment.middle,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: zortt(),
+                      ),
+                    ),
+                    TableCell(
+                      verticalAlignment: TableCellVerticalAlignment.middle,
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: zortt(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
-          )
+          ),
         ],
       ),
+    );
+  }
+}
+
+class zortt extends StatelessWidget {
+  const zortt({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Container(
+          width: 20,
+          height: 20,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(color: Colors.red),
+          ),
+          child: FittedBox(
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.remove,
+                size: 180,
+              ),
+            ),
+          ),
+        ),
+        Text('5'),
+        Container(
+          width: 20,
+          height: 20,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(color: Colors.green),
+          ),
+          child: FittedBox(
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.add,
+                size: 180,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

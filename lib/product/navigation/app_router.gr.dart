@@ -18,7 +18,7 @@ abstract class _$AppRouter extends RootStackRouter {
     CalendarRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: CalendarView(),
+        child: const CalendarView(),
       );
     },
     DashBoardRoute.name: (routeData) {
@@ -37,6 +37,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SettingsView(),
+      );
+    },
+    WorkoutProgramsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const WorkoutProgramsView(),
       );
     },
   };
@@ -94,6 +100,20 @@ class SettingsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SettingsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WorkoutProgramsView]
+class WorkoutProgramsRoute extends PageRouteInfo<void> {
+  const WorkoutProgramsRoute({List<PageRouteInfo>? children})
+      : super(
+          WorkoutProgramsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkoutProgramsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

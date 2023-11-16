@@ -3,13 +3,16 @@ import 'package:lifttracker/feature/calendar/calendar_view.dart';
 import 'package:lifttracker/feature/dashboard/dashboard_view.dart';
 import 'package:lifttracker/feature/home/home_view.dart';
 import 'package:lifttracker/feature/settings/settings_view.dart';
+import 'package:lifttracker/feature/workout_programs/workout_programs_view.dart';
 
 part 'app_router.gr.dart';
 
-@AutoRouterConfig(replaceInRouteName: "View,Route")
+@AutoRouterConfig(replaceInRouteName: AppRouter._replaceRouteName)
 
 /// App router class builder for navigation system
 class AppRouter extends _$AppRouter {
+  /// replaceInRouteName arg's value for @AutoRouterConfig
+  static const _replaceRouteName = 'View,Route';
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
@@ -18,7 +21,7 @@ class AppRouter extends _$AppRouter {
           children: [
             AutoRoute(page: CalendarRoute.page, path: 'calendar'),
             AutoRoute(page: HomeRoute.page, path: 'home', initial: true),
-            AutoRoute(page: SettingsRoute.page, path: 'settings'),
+            AutoRoute(page: WorkoutProgramsRoute.page, path: 'workoutPrograms'),
           ],
         ),
       ];

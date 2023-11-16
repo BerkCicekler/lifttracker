@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:lifttracker/product/navigation/app_router.dart';
 
 @RoutePage()
+
+/// main views navigation system maintain in  here
 class DashBoardView extends StatelessWidget {
   /// DashBoard View is giving the feature of navigation capability
   /// with the power of autoroute library
@@ -16,7 +18,7 @@ class DashBoardView extends StatelessWidget {
           title: Text(tabsRouter.activeIndex.toString()),
         );
       },
-      routes: const [CalendarRoute(), HomeRoute(), SettingsRoute()],
+      routes: const [CalendarRoute(), HomeRoute(), WorkoutProgramsRoute()],
       bottomNavigationBuilder: (context, tabsRouter) {
         return BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -45,8 +47,8 @@ class DashBoardView extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(
                 tabsRouter.activeIndex == 2
-                    ? Icons.settings
-                    : Icons.settings_outlined,
+                    ? Icons.list_alt
+                    : Icons.list_alt_outlined,
               ),
               label: '',
             ),

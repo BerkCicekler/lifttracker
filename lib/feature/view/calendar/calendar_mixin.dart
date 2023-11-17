@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:lifttracker/feature/calendar/calendar_view.dart';
+import 'package:lifttracker/feature/view/calendar/calendar_view.dart';
 import 'package:widgets/custom_date_picker/custom_date_picker.dart';
 
 /// view model of CalendarView page

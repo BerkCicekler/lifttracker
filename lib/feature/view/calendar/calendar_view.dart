@@ -1,6 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
-import 'package:lifttracker/feature/calendar/calendar_mixin.dart';
+import 'package:lifttracker/feature/view/calendar/calendar_mixin.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 /// Home screen class

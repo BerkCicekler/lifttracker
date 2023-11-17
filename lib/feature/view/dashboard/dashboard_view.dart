@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:lifttracker/product/constants/color_constants.dart';
 import 'package:lifttracker/product/navigation/app_router.dart';
 
 @RoutePage()
@@ -28,7 +29,7 @@ class DashBoardView extends StatelessWidget {
           iconSize: 30,
           currentIndex: tabsRouter.activeIndex,
           onTap: tabsRouter.setActiveIndex,
-          selectedItemColor: const Color(0xFFdefb13),
+          selectedItemColor: ColorConstants.lightGreen,
           items: [
             BottomNavigationBarItem(
               icon: Icon(

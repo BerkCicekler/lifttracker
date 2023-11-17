@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:lifttracker/feature/calendar/calendar_view.dart';
-import 'package:lifttracker/feature/dashboard/dashboard_view.dart';
-import 'package:lifttracker/feature/home/home_view.dart';
+import 'package:lifttracker/feature/view/calendar/calendar_view.dart';
+import 'package:lifttracker/feature/view/dashboard/dashboard_view.dart';
+import 'package:lifttracker/feature/view/home/home_view.dart';
 import 'package:lifttracker/feature/settings/settings_view.dart';
-import 'package:lifttracker/feature/workout_programs/workout_programs_view.dart';
+import 'package:lifttracker/feature/view/workout_programs/workout_programs_view.dart';
 
 part 'app_router.gr.dart';
 

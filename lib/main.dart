@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:lifttracker/product/init/theme/dark_theme.dart';
+import 'package:lifttracker/product/init/product_initialization.dart';
+import 'package:lifttracker/product/init/product_localization.dart';
+import 'package:lifttracker/product/theme/dark_theme.dart';
 import 'package:lifttracker/product/navigation/app_router.dart';
 
-void main() {
-  runApp(const _MyApp());
+void main() async {
+  await ProductInitialization.mainInit();
+
+  runApp(ProductLocalization(child: const _MyApp()));
 }
 
 /// MainApp Widget

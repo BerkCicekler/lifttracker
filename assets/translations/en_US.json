@@ -1,0 +1,21 @@
+{
+    "home": {
+        "title": "Home",
+        "countWorkoutWeek": "Total Workout count of this week",
+        "countWorkoutMonth": "Total Workout count of this month"
+    },
+    "workoutProgram": {
+        "title": "Workout programs",
+        "exerciseCount": "Total {} different exercise",
+        "repCount": "Total {} reps"
+    },
+    "calendar": {
+        "title": "Calender"
+    },
+
+    "general": {
+        "ok": "Ok",
+        "cancel": "Cancel",
+        "save": "Save"
+    }
+}

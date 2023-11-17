@@ -1,0 +1,21 @@
+{
+    "home": {
+        "title": "Anasayfa",
+        "countWorkoutWeek": "Bu haftadaki toplam antrenman miktarı",
+        "countWorkoutMonth": "Bu aydaki toplam antrenman miktarı"
+    },
+    "workoutProgram": {
+        "title": "Antrenman Programlarım",
+        "exerciseCount": "Toplam {} farklı hareket",
+        "repCount": "Toplam {} tekrar"
+    },
+    "calendar": {
+        "title": "Takvimim"
+    },
+
+        "general": {
+        "ok": "Tamam",
+        "cancel": "İptal",
+        "save": "Kaydet"
+    }
+}

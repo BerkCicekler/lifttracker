@@ -31,9 +31,11 @@ class CustomInformationContainer extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(
-            title,
-            style: TextStyle(fontSize: 20),
+          Expanded(
+            child: Text(
+              title,
+              style: TextStyle(fontSize: 20),
+            ),
           ),
           Text(
             number,

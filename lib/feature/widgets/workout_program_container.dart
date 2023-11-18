@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lifttracker/product/constants/enums/padding_enums.dart';
 
@@ -36,7 +37,7 @@ class CustomWorkoutProgramContainer extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -44,14 +45,14 @@ class CustomWorkoutProgramContainer extends StatelessWidget {
                 style: TextStyle(fontSize: 22, fontFamily: 'RobotoBlack'),
               ),
               Text(
-                '14 different exercise',
-                style: TextStyle(
+                'workoutProgram.exerciseCount'.tr(args: [exerciseCount]),
+                style: const TextStyle(
                   fontSize: 18,
                 ),
               ),
               Text(
-                '32 Reps',
-                style: TextStyle(
+                'workoutProgram.repCount'.tr(args: [repCount]),
+                style: const TextStyle(
                   fontSize: 18,
                 ),
               ),

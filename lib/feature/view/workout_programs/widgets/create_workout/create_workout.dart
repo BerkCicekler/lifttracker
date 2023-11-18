@@ -1,16 +1,22 @@
-part of '../workout_programs_view.dart';
+part of '../../workout_programs_view.dart';
 
 /// this widget
 class CreateNewWorkout extends StatelessWidget {
   const CreateNewWorkout({super.key});
 
+  Future<void> _createNewWorkoutProgram(BuildContext context) async {
+    final respond =
+        await TextInputDialog.show(context: context, title: 'Workout name');
+    if (respond != null && respond.isNotEmpty) {
+      print(respond);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return InkWell(
-      onTap: () {
-        TextInputDialog.show(context: context, title: 'Workout name');
-      },
+      onTap: () => _createNewWorkoutProgram(context),
       child: Container(
         width: width * 0.95,
         height: 100,

@@ -49,7 +49,7 @@ class TextInputDialog extends StatelessWidget {
         ),
         CupertinoDialogAction(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pop(context, _controller.text);
           },
           child: const Text('Ok'),
         ),

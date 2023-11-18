@@ -6,7 +6,7 @@ import 'package:lifttracker/product/constants/enums/padding_enums.dart';
 import 'package:widgets/text_input_dialog/text_input_dialog.dart';
 import 'package:lifttracker/product/constants/color_constants.dart';
 
-part 'widgets/create_workout.dart';
+part 'widgets/create_workout/create_workout.dart';
 part 'widgets/show_delete_icon_buttons/show_delete_icon_buttons.dart';
 
 ///

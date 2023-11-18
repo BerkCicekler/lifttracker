@@ -23,7 +23,7 @@ class HomeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomInformationContainer(
-                    title: 'home.countWorkoutWeek'.tr(),
+                    title: 'home.countWorkoutMonth'.tr(),
                     number: '4',
                   ),
                   CustomInformationContainer(

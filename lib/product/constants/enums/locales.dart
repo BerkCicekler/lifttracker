@@ -3,10 +3,10 @@ import 'dart:ui';
 /// Supported locale enums for project
 enum Locales {
   /// Turkish locale
-  tr(Locale('tr_TR')),
+  tr(Locale('tr', 'TR')),
 
   /// English locale
-  en(Locale('en_EN'));
+  en(Locale('en', 'US'));
 
   /// Locale value
   final Locale locale;

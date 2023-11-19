@@ -2,13 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lifttracker/product/init/product_initialization.dart';
 import 'package:lifttracker/product/init/product_localization.dart';
-import 'package:lifttracker/product/theme/dark_theme.dart';
 import 'package:lifttracker/product/navigation/app_router.dart';
+import 'package:lifttracker/product/theme/dark_theme.dart';
 
 void main() async {
-  print('app loading');
   await ProductInitialization.mainInit();
-  print('loaded');
   runApp(ProductLocalization(child: const _MyApp()));
 }
 

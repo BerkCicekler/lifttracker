@@ -2,8 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:lifttracker/product/cache/hive_utility.dart';
 import 'package:lifttracker/product/init/product_localization.dart';
+import 'package:lifttracker/product/model/exercise_model.dart';
+import 'package:lifttracker/product/model/set_model.dart';
+import 'package:lifttracker/product/model/workout_model.dart';
 
 @immutable
 
@@ -29,8 +31,10 @@ final class ProductInitialization {
 
   /// Core hive boxes opens
   static Future<void> _openAllHiveBoxes() async {
-    for (final element in HiveCacheManager.coreBoxes) {
-      await Hive.openBox(element);
-    }
+    Hive
+      ..registerAdapter(WorkoutModelAdapter())
+      ..registerAdapter(ExerciseModelAdapter())
+      ..registerAdapter(SetModelAdapter());
+    await Hive.openBox<WorkoutModel>('workoutPrograms');
   }
 }

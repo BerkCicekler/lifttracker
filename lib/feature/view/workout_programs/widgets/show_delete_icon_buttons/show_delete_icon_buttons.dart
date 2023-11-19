@@ -7,7 +7,7 @@ class ShowDeleteIconButtonView extends StatelessWidget {
   const ShowDeleteIconButtonView({required this.workOutId, super.key});
 
   /// the id of workout
-  final String workOutId;
+  final int workOutId;
 
   @override
   Widget build(BuildContext context) {

@@ -1,31 +1,41 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lifttracker/product/constants/enums/padding_enums.dart';
+import 'package:lifttracker/product/model/workout_model.dart';
 
 ///
-class CustomWorkoutProgramContainer extends StatelessWidget {
+final class CustomWorkoutProgramContainer extends StatelessWidget {
   /// this is a customize able container for displaying the workouts
   /// [actions] the Widgets show on the right side of the container
-  /// [exerciseCount] total exercise count of workout program
-  /// [repCount] total rep count of the workout program
-  const CustomWorkoutProgramContainer({
+  /// [workoutModel] Workout model that will be base of this widget
+  CustomWorkoutProgramContainer({
     required this.actions,
-    required this.exerciseCount,
-    required this.repCount,
+    required this.workoutModel,
     super.key,
   });
 
   /// the user actions shows up on the right side of the container
   final List<Widget> actions;
 
-  /// Count of exercise of workout program
-  final String exerciseCount;
+  /// Workout model that will be base of this widget
+  final WorkoutModel workoutModel;
 
-  /// Rep count of workout program
-  final String repCount;
+  late String _exerciseCount;
+
+  late String _repCount;
+
+  void _calculateCounts() {
+    num repCountI = 0;
+    _exerciseCount = workoutModel.exercises.length.toString();
+    for (final key in workoutModel.exercises.keys) {
+      repCountI += workoutModel.exercises[key]!.defaultRepCount;
+    }
+    _repCount = repCountI.toString();
+  }
 
   @override
   Widget build(BuildContext context) {
+    _calculateCounts();
     final width = MediaQuery.of(context).size.width;
     return Container(
       width: width * 0.95,
@@ -41,17 +51,17 @@ class CustomWorkoutProgramContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Leg Curl',
-                style: TextStyle(fontSize: 22, fontFamily: 'RobotoBlack'),
+                workoutModel.workoutName,
+                style: const TextStyle(fontSize: 22, fontFamily: 'RobotoBlack'),
               ),
               Text(
-                'workoutProgram.exerciseCount'.tr(args: [exerciseCount]),
+                'workoutProgram.exerciseCount'.tr(args: [_exerciseCount]),
                 style: const TextStyle(
                   fontSize: 18,
                 ),
               ),
               Text(
-                'workoutProgram.repCount'.tr(args: [repCount]),
+                'workoutProgram.repCount'.tr(args: [_repCount]),
                 style: const TextStyle(
                   fontSize: 18,
                 ),

@@ -1,8 +1,9 @@
 part of '../../workout_programs_view.dart';
 
-/// this widget
-class CreateNewWorkout extends StatelessWidget {
-  const CreateNewWorkout({super.key});
+/// this widget will ask the
+class CreateNewWorkoutContainer extends StatelessWidget {
+  /// this widget will ask the
+  const CreateNewWorkoutContainer({super.key});
 
   Future<void> _createNewWorkoutProgram(BuildContext context) async {
     final respond =

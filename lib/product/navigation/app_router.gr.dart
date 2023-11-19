@@ -39,6 +39,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SettingsView(),
       );
     },
+    WorkoutProgramEditorRoute.name: (routeData) {
+      final args = routeData.argsAs<WorkoutProgramEditorRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WorkoutProgramEditorView(
+          workoutId: args.workoutId,
+          key: args.key,
+        ),
+      );
+    },
     WorkoutProgramsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -102,6 +112,45 @@ class SettingsRoute extends PageRouteInfo<void> {
   static const String name = 'SettingsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WorkoutProgramEditorView]
+class WorkoutProgramEditorRoute
+    extends PageRouteInfo<WorkoutProgramEditorRouteArgs> {
+  WorkoutProgramEditorRoute({
+    required int workoutId,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WorkoutProgramEditorRoute.name,
+          args: WorkoutProgramEditorRouteArgs(
+            workoutId: workoutId,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkoutProgramEditorRoute';
+
+  static const PageInfo<WorkoutProgramEditorRouteArgs> page =
+      PageInfo<WorkoutProgramEditorRouteArgs>(name);
+}
+
+class WorkoutProgramEditorRouteArgs {
+  const WorkoutProgramEditorRouteArgs({
+    required this.workoutId,
+    this.key,
+  });
+
+  final int workoutId;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'WorkoutProgramEditorRouteArgs{workoutId: $workoutId, key: $key}';
+  }
 }
 
 /// generated route for

@@ -7,9 +7,8 @@ import 'package:lifttracker/product/model/exercise_model.dart';
 import 'package:lifttracker/product/model/set_model.dart';
 import 'package:lifttracker/product/model/workout_model.dart';
 
-@immutable
-
 /// Product initialization manager class
+@immutable
 final class ProductInitialization {
   const ProductInitialization._();
 

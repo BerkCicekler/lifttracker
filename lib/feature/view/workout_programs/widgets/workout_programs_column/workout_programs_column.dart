@@ -1,6 +1,9 @@
 part of '../../workout_programs_view.dart';
 
+/// workout program column for listing user's workout programs
 class WorkoutProgramsColumn extends StatelessWidget {
+  /// this is a widget for listing user's workouts
+  /// will list the user's all workouts with the delete and show action
   const WorkoutProgramsColumn({required this.box, super.key});
 
   /// workout programs box
@@ -16,16 +19,22 @@ class WorkoutProgramsColumn extends StatelessWidget {
     );
 
     for (final key in map.keys) {
-      widgets.add(
-        CustomWorkoutProgramContainer(
-          actions: [
-            ShowDeleteIconButtonView(
-              workOutId: key,
-            ),
-          ],
-          workoutModel: map[key]!,
-        ),
-      );
+      widgets
+        ..add(
+          CustomWorkoutProgramContainer(
+            actions: [
+              ShowDeleteIconButtonView(
+                workOutId: key,
+              ),
+            ],
+            workoutModel: map[key]!,
+          ),
+        )
+        ..add(
+          const SizedBox(
+            height: 8,
+          ),
+        );
     }
 
     widgets.add(const CreateNewWorkoutContainer());
@@ -36,6 +45,7 @@ class WorkoutProgramsColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: _workoutContainers(),
     );
   }

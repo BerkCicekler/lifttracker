@@ -20,8 +20,8 @@ class ShowDeleteIconButtonView extends StatelessWidget {
   void _deleteOnTap(BuildContext context) async {
     bool? decision = await CustomActionDialog.show(
       context: context,
-      title: 'Are you sure?',
-      contextText: 'Are you sure you want to delete this program',
+      title: 'dialog.areyousure'.tr(),
+      contextText: 'dialog.areyousurecontext'.tr(),
       okText: 'general.ok'.tr(),
       cancelText: 'general.cancel'.tr(),
     );

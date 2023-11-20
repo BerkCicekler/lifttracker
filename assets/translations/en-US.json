@@ -12,6 +12,10 @@
     "calendar": {
         "title": "Calender"
     },
+    "dialog": {
+        "areyousure": "Are you sure?",
+        "areyousurecontext": "Are you sure you want to delete this program?"
+    },
 
     "general": {
         "ok": "Ok",

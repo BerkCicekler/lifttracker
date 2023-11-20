@@ -12,6 +12,10 @@
     "calendar": {
         "title": "Takvimim"
     },
+        "dialog": {
+        "areyousure": "Emin misin?",
+        "areyousurecontext": "Bu programı silmek istediğine emin misin?"
+    },
     "general": {
         "ok": "Tamam",
         "cancel": "İptal",

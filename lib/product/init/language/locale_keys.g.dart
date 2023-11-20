@@ -11,6 +11,9 @@ abstract class  LocaleKeys {
   static const workoutProgram = 'workoutProgram';
   static const calendar_title = 'calendar.title';
   static const calendar = 'calendar';
+  static const dialog_areyousure = 'dialog.areyousure';
+  static const dialog_areyousurecontext = 'dialog.areyousurecontext';
+  static const dialog = 'dialog';
   static const general_ok = 'general.ok';
   static const general_cancel = 'general.cancel';
   static const general_save = 'general.save';

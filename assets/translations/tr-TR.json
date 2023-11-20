@@ -12,8 +12,7 @@
     "calendar": {
         "title": "Takvimim"
     },
-
-        "general": {
+    "general": {
         "ok": "Tamam",
         "cancel": "İptal",
         "save": "Kaydet"

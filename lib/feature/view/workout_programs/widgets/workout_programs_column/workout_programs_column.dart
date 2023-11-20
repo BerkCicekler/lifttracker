@@ -24,7 +24,8 @@ class WorkoutProgramsColumn extends StatelessWidget {
           CustomWorkoutProgramContainer(
             actions: [
               ShowDeleteIconButtonView(
-                workOutId: key,
+                workoutId: key,
+                workoutModel: map[key]!,
               ),
             ],
             workoutModel: map[key]!,

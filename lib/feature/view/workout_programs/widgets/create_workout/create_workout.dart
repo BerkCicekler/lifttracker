@@ -8,8 +8,12 @@ class CreateNewWorkoutContainer extends StatelessWidget {
   const CreateNewWorkoutContainer({super.key});
 
   Future<void> _createNewWorkoutProgram(BuildContext context) async {
-    final respond =
-        await TextInputDialog.show(context: context, title: 'Workout name');
+    final respond = await TextInputDialog.show(
+      context: context,
+      title: 'Workout name',
+      okText: 'general.ok'.tr(),
+      cancelText: 'general.cancel'.tr(),
+    );
     if (respond != null && respond.isNotEmpty) {
       await HiveCacheManager.createWorkOutProgram(name: respond);
     }

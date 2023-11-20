@@ -44,6 +44,7 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: WorkoutProgramEditorView(
+          workoutModel: args.workoutModel,
           workoutId: args.workoutId,
           key: args.key,
         ),
@@ -119,12 +120,14 @@ class SettingsRoute extends PageRouteInfo<void> {
 class WorkoutProgramEditorRoute
     extends PageRouteInfo<WorkoutProgramEditorRouteArgs> {
   WorkoutProgramEditorRoute({
+    required WorkoutModel workoutModel,
     required int workoutId,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
           WorkoutProgramEditorRoute.name,
           args: WorkoutProgramEditorRouteArgs(
+            workoutModel: workoutModel,
             workoutId: workoutId,
             key: key,
           ),
@@ -139,9 +142,12 @@ class WorkoutProgramEditorRoute
 
 class WorkoutProgramEditorRouteArgs {
   const WorkoutProgramEditorRouteArgs({
+    required this.workoutModel,
     required this.workoutId,
     this.key,
   });
+
+  final WorkoutModel workoutModel;
 
   final int workoutId;
 
@@ -149,7 +155,7 @@ class WorkoutProgramEditorRouteArgs {
 
   @override
   String toString() {
-    return 'WorkoutProgramEditorRouteArgs{workoutId: $workoutId, key: $key}';
+    return 'WorkoutProgramEditorRouteArgs{workoutModel: $workoutModel, workoutId: $workoutId, key: $key}';
   }
 }
 

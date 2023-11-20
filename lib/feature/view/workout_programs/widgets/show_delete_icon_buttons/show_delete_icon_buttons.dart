@@ -3,25 +3,40 @@ part of '../../workout_programs_view.dart';
 /// its an utility to show the exercise page or delete the exercise
 class ShowDeleteIconButtonView extends StatelessWidget {
   /// its an utility to show the exercise page or delete the exercise
-  /// [workOutId] the workout id of that will showed the view page or delete
-  const ShowDeleteIconButtonView({required this.workOutId, super.key});
+  /// [workoutId] the workout id of that will showed the view page or delete
+  /// [workoutModel]
+  const ShowDeleteIconButtonView({
+    required this.workoutModel,
+    required this.workoutId,
+    super.key,
+  });
 
   /// the id of workout
-  final int workOutId;
+  final int workoutId;
+
+  /// workout model for send the data to workout program editor view
+  final WorkoutModel workoutModel;
 
   void _deleteOnTap(BuildContext context) async {
     bool? decision = await CustomActionDialog.show(
       context: context,
       title: 'Are you sure?',
       contextText: 'Are you sure you want to delete this program',
+      okText: 'general.ok'.tr(),
+      cancelText: 'general.cancel'.tr(),
     );
     if (decision != null && decision != false) {
-      HiveCacheManager.removeWorkOutProgram(id: workOutId);
+      await HiveCacheManager.removeWorkOutProgram(id: workoutId);
     }
   }
 
   void _showOnTap(BuildContext context) {
-    context.router.push(WorkoutProgramEditorRoute(workoutId: workOutId));
+    context.router.push(
+      WorkoutProgramEditorRoute(
+        workoutId: workoutId,
+        workoutModel: workoutModel,
+      ),
+    );
   }
 
   @override

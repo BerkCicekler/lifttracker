@@ -40,12 +40,20 @@ final class WorkoutModel {
     };
   }
 
+  factory WorkoutModel.empty() {
+    return WorkoutModel(
+      workoutName: '',
+      exercises: {},
+    );
+  }
+
   factory WorkoutModel.fromMap(Map<String, dynamic> map) {
     return WorkoutModel(
-        workoutName: map['workoutName'] as String,
-        exercises: Map<int, ExerciseModel>.from(
-          (map['exercises'] as Map<int, ExerciseModel>),
-        ));
+      workoutName: map['workoutName'] as String,
+      exercises: Map<int, ExerciseModel>.from(
+        (map['exercises'] as Map<int, ExerciseModel>),
+      ),
+    );
   }
 
   factory WorkoutModel.fromHiveMap(Map<dynamic, dynamic> map) {
@@ -65,17 +73,6 @@ final class WorkoutModel {
   @override
   String toString() =>
       'WorkoutModel(workoutName: $workoutName, exercises: $exercises)';
-
-  @override
-  bool operator ==(covariant WorkoutModel other) {
-    if (identical(this, other)) return true;
-
-    return other.workoutName == workoutName &&
-        mapEquals(other.exercises, exercises);
-  }
-
-  @override
-  int get hashCode => workoutName.hashCode ^ exercises.hashCode;
 }
 
 class WorkoutModelAdapter extends TypeAdapter<WorkoutModel> {

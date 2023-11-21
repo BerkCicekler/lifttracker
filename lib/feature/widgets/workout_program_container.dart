@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:lifttracker/product/constants/color_constants.dart';
 import 'package:lifttracker/product/constants/enums/padding_enums.dart';
 import 'package:lifttracker/product/model/workout_model.dart';
 
@@ -43,7 +44,7 @@ final class CustomWorkoutProgramContainer extends StatelessWidget {
       padding: EdgeInsets.all(PaddingConstants.small.value),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(8)),
-        color: Color(0xFF33363b),
+        color: ColorConstants.containerGrey,
       ),
       child: Row(
         children: [

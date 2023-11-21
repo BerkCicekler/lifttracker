@@ -40,10 +40,13 @@ dependencies:
 
   #cache
   hive: ^2.2.3
-  hive_flutter:
-    ^1.1.0
+  hive_flutter: ^1.1.0
 
-    #UI
+  #provider
+  riverpod: ^2.4.8
+  flutter_riverpod: ^2.4.8
+
+  #UI
   table_calendar: ^3.0.9
   cupertino_icons: ^1.0.6
   widgets:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lifttracker/feature/widgets/custom_number_editor.dart';
 import 'package:lifttracker/product/constants/enums/padding_enums.dart';
 
 ///
@@ -78,14 +79,14 @@ class WorkOutEditorContainer extends StatelessWidget {
                       verticalAlignment: TableCellVerticalAlignment.middle,
                       child: Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: zortt(),
+                        child: CustomNumberEditor(),
                       ),
                     ),
                     TableCell(
                       verticalAlignment: TableCellVerticalAlignment.middle,
                       child: Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: zortt(),
+                        child: CustomNumberEditor(),
                       ),
                     ),
                   ],
@@ -95,56 +96,6 @@ class WorkOutEditorContainer extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class zortt extends StatelessWidget {
-  const zortt({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Container(
-          width: 20,
-          height: 20,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: Colors.red),
-          ),
-          child: FittedBox(
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.remove,
-                size: 180,
-              ),
-            ),
-          ),
-        ),
-        Text('5'),
-        Container(
-          width: 20,
-          height: 20,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(color: Colors.green),
-          ),
-          child: FittedBox(
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.add,
-                size: 180,
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

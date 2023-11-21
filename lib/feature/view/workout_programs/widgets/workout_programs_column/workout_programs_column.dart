@@ -15,7 +15,7 @@ class WorkoutProgramsColumn extends StatelessWidget {
     final List<Widget> widgets = [];
 
     final Map<int, WorkoutModel> map = Map<int, WorkoutModel>.from(
-      (box.toMap() as Map<dynamic, dynamic>),
+      box.toMap(),
     );
 
     for (final key in map.keys) {

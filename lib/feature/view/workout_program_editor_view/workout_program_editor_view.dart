@@ -12,7 +12,7 @@ part 'provider/workout_notifier.dart';
 part 'provider/workout_provider.dart';
 
 @RoutePage()
-class WorkoutProgramEditorView extends StatelessWidget {
+class WorkoutProgramEditorView extends ConsumerStatefulWidget {
   /// its a workout program editor page for
   /// managing exercises
   /// [workoutModel] model that will be listed
@@ -31,17 +31,25 @@ class WorkoutProgramEditorView extends StatelessWidget {
   final WorkoutModel workoutModel;
 
   @override
+  ConsumerState<WorkoutProgramEditorView> createState() =>
+      _WorkoutProgramEditorViewState();
+}
+
+class _WorkoutProgramEditorViewState
+    extends ConsumerState<WorkoutProgramEditorView> {
+  @override
   Widget build(BuildContext context) {
-    for (final element in workoutModel.exercises.keys) {
-      print(workoutModel.exercises[element]);
+    final WorkoutModel model = ref.watch(workoutProvider);
+    for (final element in model.exercises.keys) {
+      print(model.exercises[element]);
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text(workoutModel.workoutName),
+        title: Text(model.workoutName),
       ),
       body: Padding(
         padding: EdgeInsets.all(PaddingConstants.page.value),
-        child: AllExercisesColumn(exercisesMap: workoutModel.exercises),
+        child: AllExercisesColumn(exercisesMap: model.exercises),
       ),
     );
   }

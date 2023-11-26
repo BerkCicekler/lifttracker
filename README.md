@@ -1,16 +1,34 @@
-# lifttracker
+# lifttracker (development still on going)
 
-A new Flutter project.
+A mobile application for creating new workout programs and save users workouts daily how much did they lift for how many sets etc.
 
-## Getting Started
+# Purpese
+I want to learn write good code so I am trying my best while coding this application. <br/>
+My thought on this application will be used by many users. I have more plans for this application for future. <br/>
+I want to publish this mobile application for IOS and Android when its done. <br/>
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## TODO
+- Workout program editor page
+- Feature to set a workout program to a date
+- Edit daily workout
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Dependencies
+- navigation
+  * [auto_route](https://pub.dev/packages/auto_route)
+- localization
+  * [easy_localization](https://pub.dev/packages/easy_localization)
+  * [intl](https://pub.dev/packages/intl)
+- cache
+  * [hive](https://pub.dev/packages/hive)
+  * [hive_flutter](https://pub.dev/packages/hive_flutter)
+- UI
+  * [table_calendar](https://pub.dev/packages/table_calendar)
+- dev_dependencies
+  * [build_runner](https://pub.dev/packages/build_runner)
+  * [auto_route_generator](https://pub.dev/packages/auto_route_generator)
+  * [very_good_analysis](https://pub.dev/packages/very_good_analysis)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+

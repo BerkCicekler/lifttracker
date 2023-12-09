@@ -80,9 +80,8 @@ class _CustomNumberEditorState extends State<CustomNumberEditor>
               textAlign: TextAlign.center,
               keyboardType: TextInputType.number,
               controller: valueController,
-              onChanged: (val) {
-                onChange(val: val);
-              },
+              onChanged: onChange,
+              onEditingComplete: onEditingComplete,
             ),
           ),
           Container(

@@ -93,10 +93,10 @@ packages:
     dependency: "direct dev"
     description:
       name: build_runner
-      sha256: "10c6bcdbf9d049a0b666702cf1cee4ddfdc38f02a19d35ae392863b47519848b"
+      sha256: "67d591d602906ef9201caf93452495ad1812bea2074f04e25dbd7c133785821b"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.6"
+    version: "2.4.7"
   build_runner_core:
     dependency: transitive
     description:
@@ -259,14 +259,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_riverpod:
-    dependency: "direct main"
-    description:
-      name: flutter_riverpod
-      sha256: d261b0f2461e0595b96f92ed807841eb72cea84a6b12b8fd0c76e5ed803e7921
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.8"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -525,14 +517,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
-  riverpod:
-    dependency: "direct main"
-    description:
-      name: riverpod
-      sha256: "08451ddbaad6eae73e2422d8109775885623340d721c6637b8719c9f4b478848"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.4.8"
   shared_preferences:
     dependency: transitive
     description:
@@ -642,14 +626,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.1"
-  state_notifier:
-    dependency: transitive
-    description:
-      name: state_notifier
-      sha256: b8677376aa54f2d7c58280d5a007f9e8774f1968d1fb1c096adcb4792fba29bb
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   stream_channel:
     dependency: transitive
     description:

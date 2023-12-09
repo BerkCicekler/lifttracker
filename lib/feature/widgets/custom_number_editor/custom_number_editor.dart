@@ -15,7 +15,7 @@ final class CustomNumberEditor extends StatefulWidget {
   /// number. This method will send a double argument.
   /// [minValue] Minimum value can be given
   /// [canBeFraction] Can use fraction value
-  CustomNumberEditor({
+  const CustomNumberEditor({
     required this.startValue,
     required this.incrementAmount,
     required this.decrementAmount,
@@ -35,10 +35,10 @@ final class CustomNumberEditor extends StatefulWidget {
   final double decrementAmount;
 
   /// minimum value can value take
-  double minValue;
+  final double minValue;
 
   /// can be fraction
-  bool canBeFraction;
+  final bool canBeFraction;
 
   /// on value change
   final void Function(double) onValueChange;

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lifttracker/feature/widgets/custom_number_editor_MVVM/number_text_field_model.dart';
+import 'package:lifttracker/feature/widgets/custom_number_editor/number_text_field_model.dart';
 
 void main() {
   group('Number Text Field Controller Model General Test', () {

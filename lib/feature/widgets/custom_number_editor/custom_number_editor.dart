@@ -75,7 +75,7 @@ class _CustomNumberEditorState extends State<CustomNumberEditor>
             ),
           ),
           SizedBox(
-            width: 25,
+            width: 35,
             child: TextField(
               textAlign: TextAlign.center,
               keyboardType: TextInputType.number,

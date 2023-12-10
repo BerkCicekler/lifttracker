@@ -12,8 +12,7 @@ final class HiveCacheManager {
   static Future<void> createWorkOutProgram({required String name}) async {
     final workoutProgramBox =
         await Hive.openBox<WorkoutModel>('workoutPrograms');
-    final WorkoutModel emptyWorkoutModel =
-        WorkoutModel(workoutName: name, exercises: {});
+    final emptyWorkoutModel = WorkoutModel(workoutName: name, exercises: {});
     await workoutProgramBox.add(emptyWorkoutModel);
   }
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lifttracker/feature/widgets/custom_number_editor.dart';
 import 'package:lifttracker/product/constants/enums/padding_enums.dart';
 
 ///
@@ -78,15 +77,13 @@ class WorkOutEditorContainer extends StatelessWidget {
                     TableCell(
                       verticalAlignment: TableCellVerticalAlignment.middle,
                       child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: CustomNumberEditor(),
-                      ),
+                          padding: EdgeInsets.all(8.0), child: Text('data')),
                     ),
                     TableCell(
                       verticalAlignment: TableCellVerticalAlignment.middle,
                       child: Padding(
                         padding: EdgeInsets.all(8.0),
-                        child: CustomNumberEditor(),
+                        child: Text('t'),
                       ),
                     ),
                   ],

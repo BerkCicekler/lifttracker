@@ -36,6 +36,7 @@ mixin CustomNumberEditorOperation on State<CustomNumberEditor> {
     model.increment();
     getLastValue();
     setState(() {});
+    widget.onValueChange(model.currentValue);
   }
 
   /// Decrement icon method will decrease the value as much decrement
@@ -44,12 +45,14 @@ mixin CustomNumberEditorOperation on State<CustomNumberEditor> {
     model.decrement();
     getLastValue();
     setState(() {});
+    widget.onValueChange(model.currentValue);
   }
 
   /// On The TextFieldChange
   void onChange(String val) {
     val = val.replaceAll(',', '.');
     model.currentValue = double.parse(val != '' ? val : '0');
+    widget.onValueChange(model.currentValue);
   }
 
   /// on The Editing Complete

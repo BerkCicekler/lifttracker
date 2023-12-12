@@ -15,8 +15,8 @@ final class ExerciseModel {
     required this.defaultRepCount,
     required this.defaultWeightCount,
   }) {
-    for (var setNumber = 1; setNumber == defaultSetCount; setNumber++) {
-      exerciseSets[setNumber] = SetModel(
+    for (var setNumber = 0; setNumber == defaultSetCount; setNumber++) {
+      exerciseSets[setNumber + 1] = SetModel(
         weight: defaultWeightCount.toString(),
         reps: defaultRepCount.toString(),
       );

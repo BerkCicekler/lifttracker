@@ -20,6 +20,7 @@ class AllExercisesColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<WorkoutModelProvider>(context);
     return SingleChildScrollView(
       child: Column(
         children: _exercisesWidgets(exercisesMap),

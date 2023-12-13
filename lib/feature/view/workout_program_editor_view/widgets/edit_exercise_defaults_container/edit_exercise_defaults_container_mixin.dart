@@ -30,23 +30,30 @@ mixin EditExerciseDefaultsContainerOperation
 
   void onValueChange({required String changeType, required double value}) {
     final valueInt = value.toInt();
+    print(valueInt);
+    print(changeType);
     switch (changeType) {
       case 'rep':
-        currentExerciseModel.copyWith(defaultRepCount: valueInt);
+        currentExerciseModel =
+            currentExerciseModel.copyWith(defaultRepCount: valueInt);
       case 'set':
-        currentExerciseModel.copyWith(defaultSetCount: valueInt);
+        currentExerciseModel =
+            currentExerciseModel.copyWith(defaultSetCount: valueInt);
       case 'weight':
-        currentExerciseModel.copyWith(defaultWeightCount: value);
+        currentExerciseModel =
+            currentExerciseModel.copyWith(defaultWeightCount: value);
       default:
         // unexpected
         return;
     }
+    _save();
   }
 
   void _save() {
-    final newModel = widget.exerciseModel.copyWith();
+    final newModel = currentExerciseModel.copyWith();
+    print(newModel);
 
-    Provider.of<WorkoutModelProvider>(context)
+    Provider.of<WorkoutModelProvider>(context, listen: false)
         .changeExercise(key: widget.exerciseKeyId, model: newModel);
     print('save');
   }

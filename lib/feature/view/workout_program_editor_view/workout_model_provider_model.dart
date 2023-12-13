@@ -5,6 +5,9 @@ class WorkoutModelProvider extends ChangeNotifier {
 
   final WorkoutModel _workoutModel;
 
+  /// getter for workout model
+  WorkoutModel get workoutModel => _workoutModel;
+
   void changeExercise({required int key, required ExerciseModel model}) {
     _workoutModel.exercises[key] = model;
   }

@@ -26,6 +26,11 @@ class EditExerciseDefaultsContainer extends StatefulWidget {
 class _EditExerciseDefaultsContainerState
     extends State<EditExerciseDefaultsContainer>
     with EditExerciseDefaultsContainerOperation {
+  /// for the texts used inside this container
+  TextStyle _customTextStyle = TextStyle(
+    fontSize: 18,
+  );
+
   @override
   Widget build(BuildContext context) {
     final num width = MediaQuery.of(context).size.width;
@@ -52,7 +57,10 @@ class _EditExerciseDefaultsContainerState
           ),
           Row(
             children: [
-              Text('workoutProgramEditor.setCount'.tr()),
+              Text(
+                'workoutProgramEditor.setCount'.tr(),
+                style: _customTextStyle,
+              ),
               CustomNumberEditor(
                 startValue: widget.exerciseModel.defaultSetCount.toDouble(),
                 incrementAmount: 1,
@@ -66,9 +74,12 @@ class _EditExerciseDefaultsContainerState
           ),
           Row(
             children: [
-              Text('workoutProgramEditor.repCount'.tr()),
+              Text(
+                'workoutProgramEditor.repCount'.tr(),
+                style: _customTextStyle,
+              ),
               CustomNumberEditor(
-                startValue: widget.exerciseModel.defaultSetCount.toDouble(),
+                startValue: widget.exerciseModel.defaultRepCount.toDouble(),
                 incrementAmount: 1,
                 decrementAmount: 1,
                 onValueChange: (val) => onValueChange(
@@ -80,9 +91,12 @@ class _EditExerciseDefaultsContainerState
           ),
           Row(
             children: [
-              Text('workoutProgramEditor.weight'.tr()),
+              Text(
+                'workoutProgramEditor.weight'.tr(),
+                style: _customTextStyle,
+              ),
               CustomNumberEditor(
-                startValue: widget.exerciseModel.defaultSetCount.toDouble(),
+                startValue: widget.exerciseModel.defaultWeightCount,
                 incrementAmount: 1.25,
                 decrementAmount: 1.25,
                 canBeFraction: true,

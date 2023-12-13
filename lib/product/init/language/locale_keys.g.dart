@@ -14,6 +14,11 @@ abstract class  LocaleKeys {
   static const dialog_areyousure = 'dialog.areyousure';
   static const dialog_areyousurecontext = 'dialog.areyousurecontext';
   static const dialog = 'dialog';
+  static const workoutProgramEditor_exerciseName = 'workoutProgramEditor.exerciseName';
+  static const workoutProgramEditor_setCount = 'workoutProgramEditor.setCount';
+  static const workoutProgramEditor_repCount = 'workoutProgramEditor.repCount';
+  static const workoutProgramEditor_weight = 'workoutProgramEditor.weight';
+  static const workoutProgramEditor = 'workoutProgramEditor';
   static const general_ok = 'general.ok';
   static const general_cancel = 'general.cancel';
   static const general_save = 'general.save';

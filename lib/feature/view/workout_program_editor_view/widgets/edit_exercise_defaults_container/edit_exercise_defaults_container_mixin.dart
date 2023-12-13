@@ -3,10 +3,15 @@ import 'package:lifttracker/feature/view/workout_program_editor_view/workout_pro
 import 'package:lifttracker/product/model/exercise_model.dart';
 import 'package:provider/provider.dart';
 
+/// Exercise editor container's operation mixin
+/// for handling state and functions
 mixin EditExerciseDefaultsContainerOperation
     on State<EditExerciseDefaultsContainer> {
-  late TextEditingController exerciseNameController;
+  /// exercise Name textfield's controller
+  late final TextEditingController exerciseNameController;
 
+  /// the current value of the exerciseModel
+  /// is store here
   late ExerciseModel currentExerciseModel;
 
   @override
@@ -33,6 +38,8 @@ mixin EditExerciseDefaultsContainerOperation
       case 'weight':
         currentExerciseModel.copyWith(defaultWeightCount: value);
       default:
+        // unexpected
+        return;
     }
   }
 

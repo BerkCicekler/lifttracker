@@ -16,6 +16,14 @@
         "areyousure": "Emin misin?",
         "areyousurecontext": "Bu programı silmek istediğine emin misin?"
     },
+
+    "workoutProgramEditor": {
+        "exerciseName": "Egzersiz Adı",
+        "setCount": "Set sayısı",
+        "repCount": "Tekrar sayısı",
+        "weight": "Ağırlık"
+    },
+
     "general": {
         "ok": "Tamam",
         "cancel": "İptal",

@@ -1,13 +1,21 @@
 part of '../../workout_program_editor_view.dart';
 
+///
 class EditExerciseDefaultsContainer extends StatefulWidget {
+  /// Exercise editor container for an exercise
+  /// [exerciseKeyId] should be the value of the index of the
+  /// [exerciseModel] so the the user made a change this widget
+  /// will update the model by the given index
   const EditExerciseDefaultsContainer({
     required this.exerciseKeyId,
     required this.exerciseModel,
     super.key,
   });
 
+  /// exercise index for update the exerciseModel
   final int exerciseKeyId;
+
+  /// default exerciseModel passed in the constructor
   final ExerciseModel exerciseModel;
 
   @override
@@ -34,10 +42,17 @@ class _EditExerciseDefaultsContainerState
         children: [
           TextField(
             controller: exerciseNameController,
+            decoration: InputDecoration(
+              hintText: 'workoutProgramEditor.exerciseName'.tr(),
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.all(0),
+              isDense: true,
+            ),
+            style: TextStyle(fontSize: 22),
           ),
           Row(
             children: [
-              Text('Set'),
+              Text('workoutProgramEditor.setCount'.tr()),
               CustomNumberEditor(
                 startValue: widget.exerciseModel.defaultSetCount.toDouble(),
                 incrementAmount: 1,
@@ -51,13 +66,13 @@ class _EditExerciseDefaultsContainerState
           ),
           Row(
             children: [
-              Text('Rep'),
+              Text('workoutProgramEditor.repCount'.tr()),
               CustomNumberEditor(
                 startValue: widget.exerciseModel.defaultSetCount.toDouble(),
                 incrementAmount: 1,
                 decrementAmount: 1,
                 onValueChange: (val) => onValueChange(
-                  changeType: 'Rep',
+                  changeType: 'rep',
                   value: val,
                 ),
               ),
@@ -65,7 +80,7 @@ class _EditExerciseDefaultsContainerState
           ),
           Row(
             children: [
-              Text('Weight'),
+              Text('workoutProgramEditor.weight'.tr()),
               CustomNumberEditor(
                 startValue: widget.exerciseModel.defaultSetCount.toDouble(),
                 incrementAmount: 1.25,

@@ -17,6 +17,13 @@
         "areyousurecontext": "Are you sure you want to delete this program?"
     },
 
+        "workoutProgramEditor": {
+        "exerciseName": "Exercise Name",
+        "setCount": "Set Count",
+        "repCount": "Rep Count",
+        "weight": "Weight"
+    },
+
     "general": {
         "ok": "Ok",
         "cancel": "Cancel",

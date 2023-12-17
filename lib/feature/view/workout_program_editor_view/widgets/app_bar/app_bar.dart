@@ -1,16 +1,12 @@
 part of '../../workout_program_editor_view.dart';
 
+/// This is a customized app bar for workout program editor page
+/// this app bar have contains save, share and add exercise feature
 class WorkoutProgramEditorAppBar extends StatelessWidget
     implements PreferredSizeWidget {
-  const WorkoutProgramEditorAppBar({
-    required this.workoutId,
-    required this.workoutName,
-    super.key,
-  });
-
-  final String workoutName;
-
-  final int workoutId;
+  /// This is a customized app bar for workout program editor page
+  /// this app bar have contains save, share and add exercise feature
+  const WorkoutProgramEditorAppBar({super.key});
 
   Future<void> _createNewExercise(BuildContext context) async {
     final nameOfExercise = await TextInputDialog.show(
@@ -20,23 +16,34 @@ class WorkoutProgramEditorAppBar extends StatelessWidget
       cancelText: 'Cancel',
     );
     if (nameOfExercise != null && nameOfExercise.isNotEmpty) {
-      Provider.of<WorkoutModelProvider>(context, listen: false)
-          .addExercise(exerciseName: nameOfExercise);
+      Provider.of<WorkoutModelProvider>(
+        context,
+        listen: false,
+      ).addExercise(exerciseName: nameOfExercise);
     }
   }
 
   void _shareThisWorkout() {}
 
   void _saveThisWorkout(BuildContext context) {
-    final model =
-        Provider.of<WorkoutModelProvider>(context, listen: false).workoutModel;
-    HiveCacheManager.updateWorkOutProgram(index: workoutId, model: model);
+    final model = Provider.of<WorkoutModelProvider>(
+      context,
+      listen: false,
+    );
+    HiveCacheManager.updateWorkOutProgram(
+      index: model.workoutId,
+      model: model.workoutModel,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final workoutProviderModel = Provider.of<WorkoutModelProvider>(
+      context,
+      listen: false,
+    );
     return AppBar(
-      title: Text(workoutName),
+      title: Text(workoutProviderModel.workoutModel.workoutName),
       actions: [
         IconButton(
           icon: const Icon(CupertinoIcons.share),

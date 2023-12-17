@@ -16,12 +16,14 @@ class AllExercisesColumn extends StatelessWidget {
   List<Widget> _exercisesWidgets(Map<int, ExerciseModel> exercises) {
     final widgetList = <Widget>[];
     for (final key in exercises.keys) {
-      widgetList.add(
-        EditExerciseDefaultsContainer(
-          exerciseKeyId: key,
-          exerciseModel: exercises[key]!,
-        ),
-      );
+      widgetList
+        ..add(
+          EditExerciseDefaultsContainer(
+            exerciseKeyId: key,
+            exerciseModel: exercises[key]!,
+          ),
+        )
+        ..add(const SizedBox(height: 10));
     }
     return widgetList;
   }

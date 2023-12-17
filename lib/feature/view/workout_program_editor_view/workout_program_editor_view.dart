@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lifttracker/feature/view/workout_program_editor_view/widgets/edit_exercise_defaults_container/edit_exercise_defaults_container_mixin.dart';
+import 'package:lifttracker/feature/view/workout_program_editor_view/workout_program_editor_mixin.dart';
 import 'package:lifttracker/feature/widgets/custom_number_editor/custom_number_editor.dart';
 import 'package:lifttracker/product/cache/hive_utility.dart';
 import 'package:lifttracker/product/constants/color_constants.dart';
@@ -41,35 +42,33 @@ class WorkoutProgramEditorView extends StatefulWidget {
       _WorkoutProgramEditorViewState();
 }
 
-class _WorkoutProgramEditorViewState extends State<WorkoutProgramEditorView> {
+class _WorkoutProgramEditorViewState extends State<WorkoutProgramEditorView>
+    with WorkoutProgramEditorOperation {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => WorkoutModelProvider(widget.workoutModel),
-      child: _WorkoutProgramEditorBody(widget: widget),
+      create: (context) => workoutModelProvider,
+      child: PopScope(
+        canPop: workoutModelProvider.isModelSaved, // TO DO
+        onPopInvoked: (val) => onPopInvoked(context),
+        child: const _WorkoutProgramEditorBody(),
+      ),
     );
   }
 }
 
 class _WorkoutProgramEditorBody extends StatelessWidget {
-  const _WorkoutProgramEditorBody({
-    required this.widget,
-    super.key,
-  });
-
-  final WorkoutProgramEditorView widget;
+  const _WorkoutProgramEditorBody();
 
   @override
   Widget build(BuildContext context) {
+    final modelProvider = Provider.of<WorkoutModelProvider>(context);
     return Scaffold(
-      appBar: WorkoutProgramEditorAppBar(
-        workoutId: widget.workoutId,
-        workoutName: widget.workoutModel.workoutName,
-      ),
+      appBar: const WorkoutProgramEditorAppBar(),
       body: Padding(
         padding: EdgeInsets.all(PaddingConstants.page.value),
         child: AllExercisesColumn(
-          exercisesMap: widget.workoutModel.exercises,
+          exercisesMap: modelProvider.workoutModel.exercises,
         ),
       ),
     );

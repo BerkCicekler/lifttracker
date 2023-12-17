@@ -50,11 +50,10 @@ mixin EditExerciseDefaultsContainerOperation
   }
 
   void _save() {
+    // new exercise model
     final newModel = currentExerciseModel.copyWith();
-    print(newModel);
 
     Provider.of<WorkoutModelProvider>(context, listen: false)
         .changeExercise(key: widget.exerciseKeyId, model: newModel);
-    print('save');
   }
 }

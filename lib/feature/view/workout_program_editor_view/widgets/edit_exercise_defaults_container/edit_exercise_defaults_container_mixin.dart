@@ -28,10 +28,10 @@ mixin EditExerciseDefaultsContainerOperation
     exerciseNameController.dispose();
   }
 
+  /// This function will execute when a user change in exercise model
+  /// and will save the change in workout model provider
   void onValueChange({required String changeType, required double value}) {
     final valueInt = value.toInt();
-    print(valueInt);
-    print(changeType);
     switch (changeType) {
       case 'rep':
         currentExerciseModel =

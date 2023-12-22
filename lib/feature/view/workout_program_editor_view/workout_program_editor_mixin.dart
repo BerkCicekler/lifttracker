@@ -1,13 +1,14 @@
 import 'package:flutter/widgets.dart';
 import 'package:lifttracker/feature/view/workout_program_editor_view/workout_program_editor_view.dart';
-import 'package:widgets/custom_action_dialog/custom_action_dialog.dart';
+import 'package:lifttracker/product/cache/hive_utility.dart';
 
+/// Operation mixin for [WorkoutProgramEditorView] page
 mixin WorkoutProgramEditorOperation on State<WorkoutProgramEditorView> {
-  late WorkoutModelProvider workoutModelProvider;
+  /// for providing and managing the workout model
+  late final WorkoutModelProvider workoutModelProvider;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     workoutModelProvider = WorkoutModelProvider(
       widget.workoutId,
@@ -17,23 +18,14 @@ mixin WorkoutProgramEditorOperation on State<WorkoutProgramEditorView> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
-    workoutModelProvider.dispose();
+    _save();
   }
 
-  void onPopInvoked(BuildContext context) async {
-    if (true) {
-      final responde = await CustomActionDialog.show(
-        context: context,
-        title: 'Not Saved',
-        contextText:
-            "You didn't saved your changes yet are you sure you want to leave the page",
-        okText: 'Yes',
-        cancelText: 'Cancel',
-      );
-      if (responde == true) return Navigator.pop(context);
-    }
-    Navigator.pop(context);
+  void _save() {
+    HiveCacheManager.updateWorkOutProgram(
+      index: workoutModelProvider.workoutId,
+      model: workoutModelProvider.workoutModel,
+    );
   }
 }

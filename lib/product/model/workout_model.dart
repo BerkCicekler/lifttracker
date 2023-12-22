@@ -7,7 +7,6 @@ import 'package:lifttracker/product/model/exercise_model.dart';
 /// workout model class for managing workout program
 @HiveType(typeId: 0)
 final class WorkoutModel {
-  /// TODO: documentation
   WorkoutModel({
     required this.workoutName,
     required this.exercises,

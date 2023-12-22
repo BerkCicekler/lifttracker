@@ -23,17 +23,22 @@ class WorkoutProgramEditorAppBar extends StatelessWidget
     }
   }
 
-  void _shareThisWorkout() {}
+  Future<void> _restoreAllChanges(BuildContext context) async {
+    final respond = await CustomActionDialog.show(
+      context: context,
+      title: 'Undo Changes',
+      contextText: 'Are you sure you want to undo all changes ?',
+      okText: 'Yes',
+      cancelText: 'Cancel',
+    );
 
-  void _saveThisWorkout(BuildContext context) {
-    final model = Provider.of<WorkoutModelProvider>(
-      context,
-      listen: false,
-    );
-    HiveCacheManager.updateWorkOutProgram(
-      index: model.workoutId,
-      model: model.workoutModel,
-    );
+    if (respond) {
+      Provider.of<WorkoutModelProvider>(
+        context,
+        listen: false,
+      ).restoreDefault();
+      await context.router.pop();
+    }
   }
 
   @override
@@ -46,20 +51,17 @@ class WorkoutProgramEditorAppBar extends StatelessWidget
       title: Text(workoutProviderModel.workoutModel.workoutName),
       actions: [
         IconButton(
-          icon: const Icon(CupertinoIcons.share),
-          onPressed: _shareThisWorkout,
+          icon: const Icon(CupertinoIcons.restart),
+          onPressed: () => _restoreAllChanges(context),
         ),
         IconButton(
           icon: const Icon(Icons.add),
           onPressed: () => _createNewExercise(context),
         ),
-        IconButton(
-          icon: const Icon(Icons.save_outlined),
-          onPressed: () => _saveThisWorkout(context),
-        ),
       ],
     );
   }
 
+  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

@@ -27,7 +27,7 @@ class _EditExerciseDefaultsContainerState
     extends State<EditExerciseDefaultsContainer>
     with EditExerciseDefaultsContainerOperation {
   /// for the texts used inside this container
-  TextStyle _customTextStyle = TextStyle(
+  final _customTextStyle = const TextStyle(
     fontSize: 18,
   );
 
@@ -50,10 +50,10 @@ class _EditExerciseDefaultsContainerState
             decoration: InputDecoration(
               hintText: 'workoutProgramEditor.exerciseName'.tr(),
               border: InputBorder.none,
-              contentPadding: EdgeInsets.all(0),
+              contentPadding: EdgeInsets.zero,
               isDense: true,
             ),
-            style: TextStyle(fontSize: 22),
+            style: const TextStyle(fontSize: 22),
           ),
           Row(
             children: [

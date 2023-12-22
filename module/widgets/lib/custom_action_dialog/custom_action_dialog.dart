@@ -24,24 +24,25 @@ class CustomActionDialog extends StatelessWidget {
   /// [okText] accept/ok action text label for localization support
   /// [cancelText] cancel action text label for localization support
   /// return type will be bool or null
-  static Future<bool?> show({
+  static Future<bool> show({
     required BuildContext context,
     required String title,
     required String contextText,
     required String okText,
     required String cancelText,
   }) async {
-    return showDialog<bool?>(
-      context: context,
-      builder: (_) {
-        return CustomActionDialog(
-          title: title,
-          contextText: contextText,
-          okText: okText,
-          cancelText: cancelText,
-        );
-      },
-    );
+    return await showDialog<bool?>(
+          context: context,
+          builder: (_) {
+            return CustomActionDialog(
+              title: title,
+              contextText: contextText,
+              okText: okText,
+              cancelText: cancelText,
+            );
+          },
+        ) ??
+        false;
   }
 
   /// title string will show up in the title text

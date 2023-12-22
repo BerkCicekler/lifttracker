@@ -5,15 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:lifttracker/feature/view/workout_program_editor_view/widgets/edit_exercise_defaults_container/edit_exercise_defaults_container_mixin.dart';
 import 'package:lifttracker/feature/view/workout_program_editor_view/workout_program_editor_mixin.dart';
 import 'package:lifttracker/feature/widgets/custom_number_editor/custom_number_editor.dart';
-import 'package:lifttracker/product/cache/hive_utility.dart';
 import 'package:lifttracker/product/constants/color_constants.dart';
 import 'package:lifttracker/product/constants/enums/padding_enums.dart';
 import 'package:lifttracker/product/model/exercise_model.dart';
 import 'package:lifttracker/product/model/workout_model.dart';
 import 'package:provider/provider.dart';
+import 'package:widgets/custom_action_dialog/custom_action_dialog.dart';
 import 'package:widgets/text_input_dialog/text_input_dialog.dart';
 
-part 'widgets/all_exercises_column.dart';
+part 'widgets/exercises_column/all_exercises_column.dart';
+part 'widgets/exercises_column/all_exercises_column_mixin.dart';
 part 'widgets/app_bar/app_bar.dart';
 part 'widgets/edit_exercise_defaults_container/edit_exercise_defaults_container.dart';
 part 'workout_model_provider_model.dart';
@@ -48,11 +49,7 @@ class _WorkoutProgramEditorViewState extends State<WorkoutProgramEditorView>
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => workoutModelProvider,
-      child: PopScope(
-        canPop: workoutModelProvider.isModelSaved, // TO DO
-        onPopInvoked: (val) => onPopInvoked(context),
-        child: const _WorkoutProgramEditorBody(),
-      ),
+      child: const _WorkoutProgramEditorBody(),
     );
   }
 }

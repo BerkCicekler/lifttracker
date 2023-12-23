@@ -28,8 +28,8 @@ final class CustomWorkoutProgramContainer extends StatelessWidget {
   void _calculateCounts() {
     num repCountI = 0;
     _exerciseCount = workoutModel.exercises.length.toString();
-    for (final key in workoutModel.exercises.keys) {
-      repCountI += workoutModel.exercises[key]!.defaultRepCount;
+    for (final exercise in workoutModel.exercises) {
+      repCountI += exercise.defaultRepCount;
     }
     _repCount = repCountI.toString();
   }

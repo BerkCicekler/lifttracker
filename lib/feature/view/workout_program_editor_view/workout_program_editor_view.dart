@@ -20,7 +20,7 @@ part 'widgets/edit_exercise_defaults_container/edit_exercise_defaults_container.
 part 'workout_model_provider_model.dart';
 
 @RoutePage()
-class WorkoutProgramEditorView extends StatefulWidget {
+final class WorkoutProgramEditorView extends StatefulWidget {
   /// its a workout program editor page for
   /// managing exercises
   /// [workoutModel] model that will be listed
@@ -59,14 +59,11 @@ class _WorkoutProgramEditorBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final modelProvider = Provider.of<WorkoutModelProvider>(context);
     return Scaffold(
       appBar: const WorkoutProgramEditorAppBar(),
       body: Padding(
         padding: EdgeInsets.all(PaddingConstants.page.value),
-        child: AllExercisesColumn(
-          exercisesMap: modelProvider.workoutModel.exercises,
-        ),
+        child: const AllExercisesColumn(),
       ),
     );
   }

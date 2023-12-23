@@ -1,7 +1,7 @@
 part of '../../workout_program_editor_view.dart';
 
 ///
-class EditExerciseDefaultsContainer extends StatefulWidget {
+final class EditExerciseDefaultsContainer extends StatefulWidget {
   /// Exercise editor container for an exercise
   /// [exerciseKeyId] should be the value of the index of the
   /// [exerciseModel] so the the user made a change this widget

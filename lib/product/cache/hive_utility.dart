@@ -1,18 +1,19 @@
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:lifttracker/product/constants/cache_hive_box_constants.dart';
 import 'package:lifttracker/product/model/workout_model.dart';
 
 /// Hive manager class for caching actions
-final class HiveCacheManager {
-  HiveCacheManager._();
+final class CacheManager {
+  CacheManager._();
 
   /// this method will create an empty workout program with class
   /// then save it in the device
   /// [name] workout program name
   static Future<void> createWorkOutProgram({required String name}) async {
     final workoutProgramBox =
-        await Hive.openBox<WorkoutModel>('workoutPrograms');
-    final emptyWorkoutModel = WorkoutModel(workoutName: name, exercises: {});
+        await Hive.openBox<WorkoutModel>(CacheHiveBoxConstants.workoutModelBox);
+    final emptyWorkoutModel = WorkoutModel(workoutName: name, exercises: []);
     await workoutProgramBox.add(emptyWorkoutModel);
   }
 
@@ -25,7 +26,7 @@ final class HiveCacheManager {
     required WorkoutModel model,
   }) async {
     final workoutProgramBox =
-        await Hive.openBox<WorkoutModel>('workoutPrograms');
+        await Hive.openBox<WorkoutModel>(CacheHiveBoxConstants.workoutModelBox);
     await workoutProgramBox.put(index, model);
   }
 
@@ -34,7 +35,7 @@ final class HiveCacheManager {
   /// [id] Hive box id
   static Future<void> removeWorkOutProgram({required int id}) async {
     final workoutProgramBox =
-        await Hive.openBox<WorkoutModel>('workoutPrograms');
+        await Hive.openBox<WorkoutModel>(CacheHiveBoxConstants.workoutModelBox);
     await workoutProgramBox.deleteAt(id);
   }
 
@@ -42,10 +43,10 @@ final class HiveCacheManager {
   /// as in order
   static Future<Map<int, WorkoutModel>> getAllWorkoutModels() async {
     final workoutProgramBox =
-        await Hive.openBox<WorkoutModel>('workoutPrograms');
+        await Hive.openBox<WorkoutModel>(CacheHiveBoxConstants.workoutModelBox);
 
     return Map<int, WorkoutModel>.from(
-      (workoutProgramBox.toMap() as Map<dynamic, dynamic>),
+      workoutProgramBox.toMap(),
     );
   }
 }

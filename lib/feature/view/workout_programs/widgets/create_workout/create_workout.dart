@@ -1,7 +1,7 @@
 part of '../../workout_programs_view.dart';
 
 /// A widget for new workout generations
-class CreateNewWorkoutContainer extends StatelessWidget {
+final class CreateNewWorkoutContainer extends StatelessWidget {
   /// clickable container created for users new workout program generations
   /// will ask the user the workout program name he wants to give the workout
   /// then it will create the workout and save the cache
@@ -15,7 +15,7 @@ class CreateNewWorkoutContainer extends StatelessWidget {
       cancelText: 'general.cancel'.tr(),
     );
     if (respond != null && respond.isNotEmpty) {
-      await HiveCacheManager.createWorkOutProgram(name: respond);
+      await CacheManager.createWorkOutProgram(name: respond);
     }
   }
 

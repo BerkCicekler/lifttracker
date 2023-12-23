@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 /// Custom cupertino date picker
 final class CustomDatePicker extends StatelessWidget {
@@ -55,12 +56,13 @@ final class CustomDatePicker extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Container(
       decoration: const BoxDecoration(
+        color: Color.fromARGB(137, 43, 43, 43),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(12),
           topRight: Radius.circular(12),
         ),
       ),
-      height: size.height * 0.27,
+      height: size.height * 0.3,
       width: size.width,
       child: CupertinoDatePicker(
         mode: datePickerMode,

@@ -5,8 +5,7 @@ import 'package:hive/hive.dart';
 
 /// exercise set model
 @HiveType(typeId: 2)
-class SetModel {
-  ///TODO: documentation
+final class SetModel {
   SetModel({
     required this.weight,
     required this.reps,

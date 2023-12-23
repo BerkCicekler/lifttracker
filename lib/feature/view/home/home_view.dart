@@ -14,26 +14,24 @@ final class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(PaddingConstants.page.value),
-      child: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomInformationContainer(
-                    title: 'home.countWorkoutMonth'.tr(),
-                    number: '4',
-                  ),
-                  CustomInformationContainer(
-                    title: 'home.countWorkoutMonth'.tr(),
-                    number: '19',
-                  ),
-                ],
-              ),
-            ],
-          ),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomInformationContainer(
+                  title: 'home.countWorkoutMonth'.tr(),
+                  number: '4',
+                ),
+                CustomInformationContainer(
+                  title: 'home.countWorkoutMonth'.tr(),
+                  number: '19',
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

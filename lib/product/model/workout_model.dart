@@ -18,11 +18,11 @@ final class WorkoutModel {
 
   /// all the Exercises listed as order
   @HiveField(1)
-  final Map<int, ExerciseModel> exercises;
+  List<ExerciseModel> exercises;
 
   WorkoutModel copyWith({
     String? workoutName,
-    Map<int, ExerciseModel>? exercises,
+    List<ExerciseModel>? exercises,
   }) {
     return WorkoutModel(
       workoutName: workoutName ?? this.workoutName,
@@ -40,15 +40,15 @@ final class WorkoutModel {
   factory WorkoutModel.empty() {
     return WorkoutModel(
       workoutName: '',
-      exercises: {},
+      exercises: [],
     );
   }
 
   factory WorkoutModel.fromMap(Map<String, dynamic> map) {
     return WorkoutModel(
       workoutName: map['workoutName'] as String,
-      exercises: Map<int, ExerciseModel>.from(
-        (map['exercises'] as Map<int, ExerciseModel>),
+      exercises: List<ExerciseModel>.from(
+        (map['exercises'] as List<ExerciseModel>),
       ),
     );
   }
@@ -56,8 +56,8 @@ final class WorkoutModel {
   factory WorkoutModel.fromHiveMap(Map<dynamic, dynamic> map) {
     return WorkoutModel(
       workoutName: map['workoutName'] as String,
-      exercises: Map<int, ExerciseModel>.from(
-        (map['exercises'] as Map<dynamic, dynamic>),
+      exercises: List<ExerciseModel>.from(
+        (map['exercises'] as List<dynamic>),
       ),
     );
   }

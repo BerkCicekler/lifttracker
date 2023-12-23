@@ -1,19 +1,19 @@
 part of 'workout_program_editor_view.dart';
 
 /// Workout model provider for managing state between widgets
-class WorkoutModelProvider extends ChangeNotifier {
+final class WorkoutModelProvider extends ChangeNotifier {
   /// base constructor
   /// [_workoutId] Cache key value of saved workout model
   /// [_workoutModel] model will provide
   WorkoutModelProvider(this._workoutId, this._workoutModel) {
-    _firstExerciseList = Map.from(workoutModel.exercises);
+    _firstExerciseList = List.from(workoutModel.exercises);
   }
 
   /// The key id of the exercise saved in cache
   final int _workoutId;
 
   /// first workout model
-  late final Map<int, ExerciseModel> _firstExerciseList;
+  late final List<ExerciseModel> _firstExerciseList;
 
   final WorkoutModel _workoutModel;
 
@@ -32,11 +32,13 @@ class WorkoutModelProvider extends ChangeNotifier {
   /// this function will add a new exercise on [_workoutModel],s exercise
   /// map with given [exerciseName]
   void addExercise({required String exerciseName}) {
-    _workoutModel.exercises[_workoutModel.exercises.length] = ExerciseModel(
-      exerciseName: exerciseName,
-      defaultSetCount: 1,
-      defaultRepCount: 1,
-      defaultWeightCount: 1.25,
+    _workoutModel.exercises.add(
+      ExerciseModel(
+        exerciseName: exerciseName,
+        defaultSetCount: 1,
+        defaultRepCount: 1,
+        defaultWeightCount: 1.25,
+      ),
     );
     notifyListeners();
   }
@@ -45,15 +47,14 @@ class WorkoutModelProvider extends ChangeNotifier {
     required int firstIndex,
     required int secondIndex,
   }) {
-    final temp = _workoutModel.exercises[firstIndex];
-    final tempSecond = _workoutModel.exercises[secondIndex];
-    _workoutModel.exercises[secondIndex] =
-        temp!; // first index can't be null because its the one who dragged
-    if (tempSecond != null) {
-      _workoutModel.exercises[firstIndex] = tempSecond;
-    } else {
-      _workoutModel.exercises.removeWhere((key, value) => key == firstIndex);
+    if (firstIndex < secondIndex) {
+      secondIndex--;
     }
+
+    final tile = _workoutModel.exercises.removeAt(firstIndex);
+
+    _workoutModel.exercises.insert(secondIndex, tile);
+
     notifyListeners();
   }
 

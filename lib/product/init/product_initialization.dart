@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:lifttracker/product/constants/cache_hive_box_constants.dart';
 import 'package:lifttracker/product/init/product_localization.dart';
 import 'package:lifttracker/product/model/exercise_model.dart';
 import 'package:lifttracker/product/model/set_model.dart';
@@ -34,6 +35,6 @@ final class ProductInitialization {
       ..registerAdapter(WorkoutModelAdapter())
       ..registerAdapter(ExerciseModelAdapter())
       ..registerAdapter(SetModelAdapter());
-    await Hive.openBox<WorkoutModel>('workoutPrograms');
+    await Hive.openBox<WorkoutModel>(CacheHiveBoxConstants.workoutModelBox);
   }
 }

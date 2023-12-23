@@ -19,7 +19,7 @@ part 'widgets/workout_programs_column/workout_programs_column.dart';
 
 /// Workout program view page
 @RoutePage()
-class WorkoutProgramsView extends StatefulWidget {
+final class WorkoutProgramsView extends StatefulWidget {
   /// Workout program view page
   const WorkoutProgramsView({super.key});
 
@@ -27,7 +27,7 @@ class WorkoutProgramsView extends StatefulWidget {
   State<WorkoutProgramsView> createState() => _WorkoutProgramsViewState();
 }
 
-class _WorkoutProgramsViewState extends State<WorkoutProgramsView>
+final class _WorkoutProgramsViewState extends State<WorkoutProgramsView>
     with WorkoutProgramOperation {
   @override
   Widget build(BuildContext context) {

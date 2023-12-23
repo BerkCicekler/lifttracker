@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 /// Home screen class
 @RoutePage()
-class SettingsView extends StatelessWidget {
-  /// Home screen constructer
+final class SettingsView extends StatelessWidget {
+  /// Home screen constructor
   const SettingsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [Text("hi")],
+    return const Column(
+      children: [Text('hi')],
     );
   }
 }

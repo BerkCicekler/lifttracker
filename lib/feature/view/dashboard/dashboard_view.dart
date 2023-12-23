@@ -8,7 +8,7 @@ import 'package:lifttracker/product/navigation/app_router.dart';
 @RoutePage()
 
 /// main views navigation system maintain in  here
-class DashBoardView extends StatelessWidget {
+final class DashBoardView extends StatelessWidget {
   /// DashBoard View is giving the feature of navigation capability
   /// with the power of autoroute library
   const DashBoardView({super.key});

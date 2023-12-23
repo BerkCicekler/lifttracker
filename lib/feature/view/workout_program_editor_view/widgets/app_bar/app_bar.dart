@@ -2,7 +2,7 @@ part of '../../workout_program_editor_view.dart';
 
 /// This is a customized app bar for workout program editor page
 /// this app bar have contains save, share and add exercise feature
-class WorkoutProgramEditorAppBar extends StatelessWidget
+final class WorkoutProgramEditorAppBar extends StatelessWidget
     implements PreferredSizeWidget {
   /// This is a customized app bar for workout program editor page
   /// this app bar have contains save, share and add exercise feature

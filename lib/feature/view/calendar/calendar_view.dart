@@ -5,7 +5,7 @@ import 'package:table_calendar/table_calendar.dart';
 
 /// Home screen class
 @RoutePage()
-class CalendarView extends StatefulWidget {
+final class CalendarView extends StatefulWidget {
   /// Home screen constructor
   const CalendarView({super.key});
 
@@ -13,7 +13,7 @@ class CalendarView extends StatefulWidget {
   State<CalendarView> createState() => _CalendarViewState();
 }
 
-class _CalendarViewState extends State<CalendarView> with CalendarMixin {
+final class _CalendarViewState extends State<CalendarView> with CalendarMixin {
   @override
   Widget build(BuildContext context) {
     return Center(

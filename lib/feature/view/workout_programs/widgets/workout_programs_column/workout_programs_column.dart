@@ -1,7 +1,7 @@
 part of '../../workout_programs_view.dart';
 
 /// workout program column for listing user's workout programs
-class WorkoutProgramsColumn extends StatelessWidget {
+final class WorkoutProgramsColumn extends StatelessWidget {
   /// this is a widget for listing user's workouts
   /// will list the user's all workouts with the delete and show action
   const WorkoutProgramsColumn({required this.box, super.key});
@@ -12,9 +12,9 @@ class WorkoutProgramsColumn extends StatelessWidget {
   /// this function will return all the workout programs that user's created
   /// as a list of widgets created with CustomWorkoutContainer
   List<Widget> _workoutContainers() {
-    final List<Widget> widgets = [];
+    final widgets = <Widget>[];
 
-    final Map<int, WorkoutModel> map = Map<int, WorkoutModel>.from(
+    final map = Map<int, WorkoutModel>.from(
       box.toMap(),
     );
 

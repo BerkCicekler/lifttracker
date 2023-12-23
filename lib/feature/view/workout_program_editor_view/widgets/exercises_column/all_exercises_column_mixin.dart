@@ -13,18 +13,19 @@ mixin AllExercisesColumnOperation on State<AllExercisesColumn> {
 
   /// This function will return the all exercises as
   /// EditExerciseDefaultsContainer List<widget>
-  List<Widget> exercisesWidgets(Map<int, ExerciseModel> exercises) {
+  List<Widget> exercisesWidgets(List<ExerciseModel> exercises) {
     final widgetList = <Widget>[];
-    print(exercises.keys);
-    for (final key in exercises.keys) {
-      print(ValueKey(key));
+
+    for (var i = 0; i < exercises.length; i++) {
+      print(exercises[i]);
+      print(ValueKey(i));
       widgetList.add(
         ListTile(
           contentPadding: EdgeInsets.zero,
-          key: ValueKey(key),
+          key: ValueKey(i),
           subtitle: EditExerciseDefaultsContainer(
-            exerciseKeyId: key,
-            exerciseModel: exercises[key]!,
+            exerciseKeyId: i,
+            exerciseModel: exercises[i],
           ),
         ),
       );

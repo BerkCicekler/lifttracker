@@ -1,7 +1,7 @@
 part of '../../workout_programs_view.dart';
 
 /// its an utility to show the exercise page or delete the exercise
-class ShowDeleteIconButtonView extends StatelessWidget {
+final class ShowDeleteIconButtonView extends StatelessWidget {
   /// its an utility to show the exercise page or delete the exercise
   /// [workoutId] the workout id of that will showed the view page or delete
   /// [workoutModel]
@@ -26,7 +26,7 @@ class ShowDeleteIconButtonView extends StatelessWidget {
       cancelText: 'general.cancel'.tr(),
     );
     if (respond) {
-      await HiveCacheManager.removeWorkOutProgram(id: workoutId);
+      await CacheManager.removeWorkOutProgram(id: workoutId);
     }
   }
 

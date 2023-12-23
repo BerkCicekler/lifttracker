@@ -23,7 +23,7 @@ mixin WorkoutProgramEditorOperation on State<WorkoutProgramEditorView> {
   }
 
   void _save() {
-    HiveCacheManager.updateWorkOutProgram(
+    CacheManager.updateWorkOutProgram(
       index: workoutModelProvider.workoutId,
       model: workoutModelProvider.workoutModel,
     );

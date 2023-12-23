@@ -13,7 +13,7 @@ part 'app_router.gr.dart';
 @AutoRouterConfig(replaceInRouteName: AppRouter._replaceRouteName)
 
 /// App router class builder for navigation system
-class AppRouter extends _$AppRouter {
+final class AppRouter extends _$AppRouter {
   /// replaceInRouteName arg's value for @AutoRouterConfig
   static const _replaceRouteName = 'View,Route';
   @override

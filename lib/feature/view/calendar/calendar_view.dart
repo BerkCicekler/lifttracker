@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:lifttracker/feature/view/calendar/calendar_mixin.dart';
+import 'package:lifttracker/product/constants/color_constants.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 /// Home screen class
@@ -22,6 +23,10 @@ final class _CalendarViewState extends State<CalendarView> with CalendarMixin {
           // ignore: inference_failure_on_instance_creation
           TableCalendar(
             calendarStyle: const CalendarStyle(
+              markerDecoration: BoxDecoration(
+                color: ColorConstants.lightGreen,
+                shape: BoxShape.circle,
+              ),
               todayDecoration: BoxDecoration(
                 color: Color.fromARGB(122, 220, 251, 19),
                 shape: BoxShape.circle,
@@ -42,6 +47,7 @@ final class _CalendarViewState extends State<CalendarView> with CalendarMixin {
             onHeaderTapped: onCalendarHeaderTap,
             firstDay: DateTime(2020),
             lastDay: DateTime(DateTime.now().year + 1),
+            eventLoader: eventLoader,
           ),
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:lifttracker/feature/view/calendar/calendar_view.dart';
+import 'package:lifttracker/product/extensions/datetime_extension.dart';
 import 'package:widgets/custom_date_picker/custom_date_picker.dart';
 
 /// view model of CalendarView page
@@ -34,5 +35,9 @@ mixin CalendarMixin on State<CalendarView> {
     selectedDate = value;
     focusedDate = value;
     setState(() {});
+  }
+
+  List<dynamic> eventLoader(DateTime day) {
+    return day.isSameDate(DateTime.now()) ? ["sads", "asdasd"] : [];
   }
 }

@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:lifttracker/feature/widgets/intractable_container.dart';
 import 'package:lifttracker/feature/view/workout_programs/workout_programs_mixin.dart';
 import 'package:lifttracker/feature/widgets/workout_program_container.dart';
 import 'package:lifttracker/product/cache/hive_utility.dart';
@@ -13,7 +14,6 @@ import 'package:lifttracker/product/navigation/app_router.dart';
 import 'package:widgets/custom_action_dialog/custom_action_dialog.dart';
 import 'package:widgets/text_input_dialog/text_input_dialog.dart';
 
-part 'widgets/create_workout/create_workout.dart';
 part 'widgets/show_delete_icon_buttons/show_delete_icon_buttons.dart';
 part 'widgets/workout_programs_column/workout_programs_column.dart';
 

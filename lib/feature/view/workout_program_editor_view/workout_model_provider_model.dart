@@ -43,6 +43,7 @@ final class WorkoutModelProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// This function will replace 2 exercises index's
   void change2ExercisesIndex({
     required int firstIndex,
     required int secondIndex,

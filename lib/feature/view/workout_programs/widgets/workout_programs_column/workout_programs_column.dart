@@ -9,6 +9,18 @@ final class WorkoutProgramsColumn extends StatelessWidget {
   /// workout programs box
   final Box<dynamic> box;
 
+  Future<void> _createNewWorkoutProgram(BuildContext context) async {
+    final respond = await TextInputDialog.show(
+      context: context,
+      title: 'Workout name',
+      okText: 'general.ok'.tr(),
+      cancelText: 'general.cancel'.tr(),
+    );
+    if (respond != null && respond.isNotEmpty) {
+      await CacheManager.createWorkOutProgram(name: respond);
+    }
+  }
+
   /// this function will return all the workout programs that user's created
   /// as a list of widgets created with CustomWorkoutContainer
   List<Widget> _workoutContainers() {
@@ -38,8 +50,6 @@ final class WorkoutProgramsColumn extends StatelessWidget {
         );
     }
 
-    widgets.add(const CreateNewWorkoutContainer());
-
     return widgets;
   }
 
@@ -47,7 +57,12 @@ final class WorkoutProgramsColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: _workoutContainers(),
+      children: [
+        ..._workoutContainers(),
+        IntractableContainer(
+          onTap: () => _createNewWorkoutProgram(context),
+        ),
+      ],
     );
   }
 }

@@ -41,5 +41,6 @@ mixin AllExercisesColumnOperation on State<AllExercisesColumn> {
       firstIndex: oldIndex,
       secondIndex: newIndex,
     );
+    setState(() {});
   }
 }

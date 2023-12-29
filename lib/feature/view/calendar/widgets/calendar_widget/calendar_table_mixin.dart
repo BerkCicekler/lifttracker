@@ -3,8 +3,7 @@ import 'package:lifttracker/feature/view/calendar/calendar_view.dart';
 import 'package:lifttracker/product/extensions/datetime_extension.dart';
 import 'package:widgets/custom_date_picker/custom_date_picker.dart';
 
-/// view model of CalendarView page
-mixin CalendarViewOperation on State<CalendarView> {
+mixin CalendarTableViewOperation on State<CalendarTableView> {
   /// default selected date time
   DateTime selectedDate = DateTime.now();
 

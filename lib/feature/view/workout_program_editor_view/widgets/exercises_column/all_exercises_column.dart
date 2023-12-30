@@ -16,10 +16,8 @@ final class _AllExercisesColumnState extends State<AllExercisesColumn>
   Widget build(BuildContext context) {
     final exercises =
         Provider.of<WorkoutModelProvider>(context).workoutModel.exercises;
-    print(exercises);
-    print('build');
     return ReorderableListView(
-      //TODO: sıralama sıkıntılı
+      //TODO: ordering is wrong
       onReorder: onDragDrop,
       children: exercisesWidgets(exercises),
     );

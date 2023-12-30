@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lifttracker/feature/view/calendar/calendar_view.dart';
+import 'package:lifttracker/feature/view/calendar/calender_cubit.dart';
 import 'package:lifttracker/product/extensions/datetime_extension.dart';
 import 'package:widgets/custom_date_picker/custom_date_picker.dart';
 
@@ -14,6 +16,7 @@ mixin CalendarTableViewOperation on State<CalendarTableView> {
   void onDaySelected(DateTime selectedDay, DateTime focusedDate) {
     selectedDate = selectedDay;
     this.focusedDate = focusedDate;
+    context.read<CalenderViewCubit>().dateSelected(focusedDate);
     setState(() {});
   }
 

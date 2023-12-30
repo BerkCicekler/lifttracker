@@ -17,8 +17,6 @@ mixin AllExercisesColumnOperation on State<AllExercisesColumn> {
     final widgetList = <Widget>[];
 
     for (var i = 0; i < exercises.length; i++) {
-      print(exercises[i]);
-      print(ValueKey(i));
       widgetList.add(
         ListTile(
           contentPadding: EdgeInsets.zero,

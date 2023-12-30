@@ -6,6 +6,7 @@ import 'package:lifttracker/feature/view/dashboard/dashboard_view.dart';
 import 'package:lifttracker/feature/view/home/home_view.dart';
 import 'package:lifttracker/feature/view/workout_program_editor_view/workout_program_editor_view.dart';
 import 'package:lifttracker/feature/view/workout_programs/workout_programs_view.dart';
+import 'package:lifttracker/feature/view/workout_selection_view/workout_selection_view.dart';
 import 'package:lifttracker/product/model/workout_model.dart';
 
 part 'app_router.gr.dart';
@@ -28,5 +29,6 @@ final class AppRouter extends _$AppRouter {
           ],
         ),
         AutoRoute(page: WorkoutProgramEditorRoute.page),
+        AutoRoute(page: WorkoutSelectionRoute.page),
       ];
 }

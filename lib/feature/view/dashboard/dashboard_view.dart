@@ -32,27 +32,20 @@ final class DashBoardView extends StatelessWidget {
           currentIndex: tabsRouter.activeIndex,
           onTap: tabsRouter.setActiveIndex,
           selectedItemColor: ColorConstants.lightGreen,
-          items: [
+          items: const [
             BottomNavigationBarItem(
-              icon: Icon(
-                tabsRouter.activeIndex == 0
-                    ? Icons.calendar_month
-                    : Icons.calendar_month_outlined,
-              ),
+              activeIcon: Icon(Icons.calendar_month),
+              icon: Icon(Icons.calendar_month_outlined),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                tabsRouter.activeIndex == 1 ? Icons.home : Icons.home_outlined,
-              ),
+              activeIcon: Icon(Icons.home),
+              icon: Icon(Icons.home_outlined),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                tabsRouter.activeIndex == 2
-                    ? Icons.list_alt
-                    : Icons.list_alt_outlined,
-              ),
+              icon: Icon(Icons.list_alt_outlined),
+              activeIcon: Icon(Icons.list_alt),
               label: '',
             ),
           ],

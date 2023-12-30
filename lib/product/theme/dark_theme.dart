@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lifttracker/product/constants/font_constants.dart';
 
 /// DarkTheme class
 final class CustomDarkTheme {
@@ -14,5 +15,6 @@ final class CustomDarkTheme {
       background: Color(0xFF1c2125),
       surface: Color(0xFF272c30),
     ),
+    fontFamily: FontConstants.inter,
   );
 }

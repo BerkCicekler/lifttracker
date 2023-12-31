@@ -5,14 +5,16 @@ import 'package:lifttracker/product/cache/hive_utility.dart';
 /// Operation mixin for [WorkoutProgramEditorView] page
 mixin WorkoutProgramEditorOperation on State<WorkoutProgramEditorView> {
   /// for providing and managing the workout model
-  late final WorkoutModelProvider workoutModelProvider;
+  late final WorkoutModelCubit workoutModelCubit;
 
   @override
   void initState() {
     super.initState();
-    workoutModelProvider = WorkoutModelProvider(
-      widget.workoutId,
-      widget.workoutModel,
+    workoutModelCubit = WorkoutModelCubit(
+      WorkoutModelState(
+        widget.workoutId,
+        widget.workoutModel,
+      ),
     );
   }
 
@@ -24,8 +26,8 @@ mixin WorkoutProgramEditorOperation on State<WorkoutProgramEditorView> {
 
   void _save() {
     CacheManager.updateWorkOutProgram(
-      index: workoutModelProvider.workoutId,
-      model: workoutModelProvider.workoutModel,
+      index: workoutModelCubit.state.workoutCacheId,
+      model: workoutModelCubit.state.workoutModel,
     );
   }
 }

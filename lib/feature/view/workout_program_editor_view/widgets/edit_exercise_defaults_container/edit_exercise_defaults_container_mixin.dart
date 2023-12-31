@@ -53,7 +53,9 @@ mixin EditExerciseDefaultsContainerOperation
     // new exercise model
     final newModel = currentExerciseModel.copyWith();
 
-    Provider.of<WorkoutModelProvider>(context, listen: false)
-        .changeExercise(key: widget.exerciseKeyId, model: newModel);
+    context.read<WorkoutModelCubit>().changeExercise(
+          key: widget.exerciseKeyId,
+          model: newModel,
+        );
   }
 }

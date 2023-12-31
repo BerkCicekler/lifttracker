@@ -10,14 +10,14 @@ final class WorkoutProgramsColumn extends StatelessWidget {
   final Box<dynamic> box;
 
   Future<void> _createNewWorkoutProgram(BuildContext context) async {
-    final respond = await TextInputDialog.show(
+    final response = await TextInputDialog.show(
       context: context,
       title: 'Workout name',
       okText: 'general.ok'.tr(),
       cancelText: 'general.cancel'.tr(),
     );
-    if (respond != null && respond.isNotEmpty) {
-      await CacheManager.createWorkOutProgram(name: respond);
+    if (response != null && response.isNotEmpty) {
+      await CacheManager.createWorkOutProgram(name: response);
     }
   }
 

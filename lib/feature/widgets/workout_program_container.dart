@@ -13,7 +13,9 @@ final class CustomWorkoutProgramContainer extends StatelessWidget {
     required this.actions,
     required this.workoutModel,
     super.key,
-  });
+  }) {
+    _calculateCounts();
+  }
 
   /// the user actions shows up on the right side of the container
   final List<Widget> actions;
@@ -36,7 +38,6 @@ final class CustomWorkoutProgramContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _calculateCounts();
     final width = MediaQuery.of(context).size.width;
     return Container(
       width: width * 0.95,

@@ -18,14 +18,14 @@ final class ShowDeleteIconButtonView extends StatelessWidget {
   final WorkoutModel workoutModel;
 
   Future<void> _deleteOnTap(BuildContext context) async {
-    final respond = await CustomActionDialog.show(
+    final response = await CustomActionDialog.show(
       context: context,
       title: 'dialog.areyousure'.tr(),
       contextText: 'dialog.areyousurecontext'.tr(),
       okText: 'general.ok'.tr(),
       cancelText: 'general.cancel'.tr(),
     );
-    if (respond) {
+    if (response) {
       await CacheManager.removeWorkOutProgram(id: workoutId);
     }
   }

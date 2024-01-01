@@ -26,6 +26,8 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
 
+  equatable: ^2.0.5
+
   #UI
   table_calendar: ^3.0.9
   cupertino_icons: ^1.0.6

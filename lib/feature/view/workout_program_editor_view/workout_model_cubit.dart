@@ -106,7 +106,7 @@ final class WorkoutModelCubit extends Cubit<WorkoutModelState> {
 }
 
 /// State holder for [WorkoutModelCubit]
-final class WorkoutModelState {
+final class WorkoutModelState extends Equatable {
   /// base constructor
   /// [workoutCacheId] Cache key value of saved workout model
   /// [workoutModel] model will provide
@@ -126,4 +126,7 @@ final class WorkoutModelState {
       workoutModel ?? this.workoutModel,
     );
   }
+
+  @override
+  List<Object?> get props => [workoutCacheId, workoutModel];
 }

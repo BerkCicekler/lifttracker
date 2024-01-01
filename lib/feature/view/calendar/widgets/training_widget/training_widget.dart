@@ -2,36 +2,58 @@ part of '../../calendar_view.dart';
 
 /// Training show widget for calender page
 final class TrainingWidget extends StatelessWidget {
-  /// [selectedDate] should be the selected date on the calendar
   const TrainingWidget({
-    required this.selectedDate,
     super.key,
   });
 
-  /// selected date on the calender table
-  final DateTime selectedDate;
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<CalenderViewCubit, DateTime>(
+      builder: (context, date) {
+        return Column(
+          children: [
+            _SelectedDateText(date: date),
+            IntractableContainer(
+              onTap: () =>
+                  context.read<CalenderViewCubit>().selectWorkoutModel(context),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+final class _SelectedDateText extends StatelessWidget {
+  const _SelectedDateText({required this.date});
+
+  final DateTime date;
+
+  String _generateDateText() {
+    if (date.isToday()) {
+      return 'Today';
+    } else if (date.isYesterday()) {
+      return 'Yesterday';
+    } else if (date.isAWeekAgo()) {
+      return 'Week ago';
+    } else {
+      return DateFormat('EEEE, d MMM').format(date);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          alignment: Alignment.centerLeft,
-          margin: const EdgeInsets.only(
-            left: 12,
-          ),
-          child: Text(
-            DateFormat('EEEE, d MMM').format(selectedDate),
-            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-        ),
-        IntractableContainer(
-          onTap: () =>
-              context.read<CalenderViewCubit>().selectWorkoutModel(context),
-        ),
-      ],
+    return Container(
+      alignment: Alignment.centerLeft,
+      margin: const EdgeInsets.only(
+        left: 12,
+      ),
+      child: Text(
+        _generateDateText(),
+        style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+      ),
     );
   }
 }

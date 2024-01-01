@@ -4,4 +4,16 @@ extension DateTimeExtension on DateTime {
   bool isSameDate(DateTime date) {
     return year == date.year && month == date.month && day == date.day;
   }
+
+  bool isYesterday() {
+    return isSameDate(DateTime.now().subtract(const Duration(days: 1)));
+  }
+
+  bool isAWeekAgo() {
+    return isSameDate(DateTime.now().subtract(const Duration(days: 7)));
+  }
+
+  bool isToday() {
+    return isSameDate(DateTime.now());
+  }
 }

@@ -110,7 +110,7 @@ final class WorkoutModelState extends Equatable {
   /// base constructor
   /// [workoutCacheId] Cache key value of saved workout model
   /// [workoutModel] model will provide
-  WorkoutModelState(this.workoutCacheId, this.workoutModel);
+  const WorkoutModelState(this.workoutCacheId, this.workoutModel);
 
   /// The key id of the exercise saved in cache
   final int workoutCacheId;

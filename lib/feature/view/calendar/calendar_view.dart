@@ -6,6 +6,7 @@ import 'package:lifttracker/feature/view/calendar/calender_cubit.dart';
 import 'package:lifttracker/feature/view/calendar/widgets/calendar_widget/calendar_table_mixin.dart';
 import 'package:lifttracker/feature/widgets/intractable_container.dart';
 import 'package:lifttracker/product/constants/color_constants.dart';
+import 'package:lifttracker/product/extensions/datetime_extension.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 part 'widgets/calendar_widget/calendar_table_view.dart';
@@ -31,14 +32,10 @@ class _CalenderBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        const CalendarTableView(),
-        BlocBuilder<CalenderViewCubit, DateTime>(
-          builder: (context, date) {
-            return TrainingWidget(selectedDate: date);
-          },
-        ),
+        CalendarTableView(),
+        TrainingWidget(),
       ],
     );
   }

@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
 import 'package:hive/hive.dart';
 
 import 'package:lifttracker/product/model/exercise_model.dart';
@@ -44,15 +43,6 @@ final class WorkoutModel {
     );
   }
 
-  factory WorkoutModel.fromMap(Map<String, dynamic> map) {
-    return WorkoutModel(
-      workoutName: map['workoutName'] as String,
-      exercises: List<ExerciseModel>.from(
-        (map['exercises'] as List<ExerciseModel>),
-      ),
-    );
-  }
-
   factory WorkoutModel.fromHiveMap(Map<dynamic, dynamic> map) {
     return WorkoutModel(
       workoutName: map['workoutName'] as String,
@@ -61,24 +51,15 @@ final class WorkoutModel {
       ),
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory WorkoutModel.fromJson(String source) =>
-      WorkoutModel.fromMap(json.decode(source) as Map<String, dynamic>);
-
-  @override
-  String toString() =>
-      'WorkoutModel(workoutName: $workoutName, exercises: $exercises)';
 }
 
-class WorkoutModelAdapter extends TypeAdapter<WorkoutModel> {
+final class WorkoutModelAdapter extends TypeAdapter<WorkoutModel> {
   @override
   int get typeId => 0;
 
   @override
   WorkoutModel read(BinaryReader reader) {
-    Map<dynamic, dynamic> map = reader.readMap();
+    final map = reader.readMap();
     return WorkoutModel.fromHiveMap(map);
   }
 

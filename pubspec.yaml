@@ -29,6 +29,7 @@ dependencies:
   equatable: ^2.0.5
 
   #UI
+  flutter_native_splash: ^2.3.9
   table_calendar: ^3.0.9
   cupertino_icons: ^1.0.6
   widgets:
@@ -64,3 +65,7 @@ flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/images/app_icon/app_icon.png"
+
+flutter_native_splash:
+  color: "#808080"
+  image: assets/images/app_icon/app_icon.png

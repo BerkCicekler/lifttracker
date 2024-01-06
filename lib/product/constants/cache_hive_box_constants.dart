@@ -2,4 +2,6 @@
 final class CacheHiveBoxConstants {
   CacheHiveBoxConstants._();
   static const workoutModelBox = 'workoutPrograms';
+
+  static const trainingModelBox = 'trainingsDone';
 }

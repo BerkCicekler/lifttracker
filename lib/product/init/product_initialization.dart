@@ -6,6 +6,7 @@ import 'package:lifttracker/product/constants/cache_hive_box_constants.dart';
 import 'package:lifttracker/product/init/product_localization.dart';
 import 'package:lifttracker/product/model/exercise_model.dart';
 import 'package:lifttracker/product/model/set_model.dart';
+import 'package:lifttracker/product/model/training_done_model.dart';
 import 'package:lifttracker/product/model/workout_model.dart';
 
 /// Product initialization manager class
@@ -34,7 +35,8 @@ final class ProductInitialization {
     Hive
       ..registerAdapter(WorkoutModelAdapter())
       ..registerAdapter(ExerciseModelAdapter())
-      ..registerAdapter(SetModelAdapter());
+      ..registerAdapter(SetModelAdapter())
+      ..registerAdapter(TrainingModelAdapter());
     await Hive.openBox<WorkoutModel>(CacheHiveBoxConstants.workoutModelBox);
   }
 }

@@ -1,4 +1,5 @@
-/// General date time extension
+// ignore_for_file: public_member_api_docs
+
 extension DateTimeExtension on DateTime {
   /// a control function for detecting if its the giving date equal
   bool isSameDate(DateTime date) {

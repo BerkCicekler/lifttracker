@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lifttracker/feature/cubit/trainings_cubit.dart';
 import 'package:lifttracker/feature/view/calendar/calendar_view.dart';
 import 'package:lifttracker/feature/view/calendar/calender_cubit.dart';
-import 'package:lifttracker/product/extensions/datetime_extension.dart';
 import 'package:widgets/custom_date_picker/custom_date_picker.dart';
 
+/// a operation mixin for Calender table widget
 mixin CalendarTableViewOperation on State<CalendarTableView> {
   /// default selected date time
   DateTime selectedDate = DateTime.now();
@@ -40,6 +41,9 @@ mixin CalendarTableViewOperation on State<CalendarTableView> {
   }
 
   List<dynamic> eventLoader(DateTime day) {
-    return day.isSameDate(DateTime.now()) ? ["sads", "asdasd"] : [];
+    final pureDate = DateTime(day.year, day.month, day.day);
+    return context.read<TrainingsCubit>().state[pureDate] != null
+        ? ['yes']
+        : [];
   }
 }

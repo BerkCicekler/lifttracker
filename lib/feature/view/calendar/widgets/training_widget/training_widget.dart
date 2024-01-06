@@ -29,18 +29,6 @@ final class _SelectedDateText extends StatelessWidget {
 
   final DateTime date;
 
-  String _generateDateText() {
-    if (date.isToday()) {
-      return 'Today';
-    } else if (date.isYesterday()) {
-      return 'Yesterday';
-    } else if (date.isAWeekAgo()) {
-      return 'Week ago';
-    } else {
-      return DateFormat('EEEE, d MMM').format(date);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,7 +37,7 @@ final class _SelectedDateText extends StatelessWidget {
         left: 12,
       ),
       child: Text(
-        _generateDateText(),
+        DateFormatterUtil.generateDateText(date),
         style: Theme.of(context).textTheme.headlineSmall!.copyWith(
               fontWeight: FontWeight.bold,
             ),

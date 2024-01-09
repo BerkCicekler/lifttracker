@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
 
 import 'package:hive/hive.dart';
 
@@ -15,10 +14,10 @@ final class ExerciseModel {
     required this.defaultRepCount,
     required this.defaultWeightCount,
   }) {
-    for (var setNumber = 1; setNumber == defaultSetCount; setNumber++) {
+    for (var setNumber = 0; setNumber == defaultSetCount; setNumber++) {
       exerciseSets[setNumber] = SetModel(
-        weight: defaultWeightCount.toString(),
-        reps: defaultRepCount.toString(),
+        weight: defaultWeightCount,
+        reps: defaultRepCount,
       );
     }
   }
@@ -69,15 +68,6 @@ final class ExerciseModel {
     };
   }
 
-  factory ExerciseModel.fromMap(Map<String, dynamic> map) {
-    return ExerciseModel(
-      exerciseName: map['exerciseName'] as String,
-      defaultSetCount: map['defaultSetCount'] as int,
-      defaultRepCount: map['defaultRepCount'] as int,
-      defaultWeightCount: map['defaultWeightCount'] as double,
-    );
-  }
-
   factory ExerciseModel.fromHiveMap(Map<dynamic, dynamic> map) {
     return ExerciseModel(
       exerciseName: map['exerciseName'] as String,
@@ -86,43 +76,15 @@ final class ExerciseModel {
       defaultWeightCount: map['defaultWeightCount'] as double,
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory ExerciseModel.fromJson(String source) =>
-      ExerciseModel.fromMap(json.decode(source) as Map<String, dynamic>);
-
-  @override
-  String toString() {
-    return 'ExerciseModel(exerciseName: $exerciseName, defaultSetCount: $defaultSetCount, defaultRepCount: $defaultRepCount, defaultWeightCount: $defaultWeightCount)';
-  }
-
-  @override
-  bool operator ==(covariant ExerciseModel other) {
-    if (identical(this, other)) return true;
-
-    return other.exerciseName == exerciseName &&
-        other.defaultSetCount == defaultSetCount &&
-        other.defaultRepCount == defaultRepCount &&
-        other.defaultWeightCount == defaultWeightCount;
-  }
-
-  @override
-  int get hashCode {
-    return exerciseName.hashCode ^
-        defaultSetCount.hashCode ^
-        defaultRepCount.hashCode ^
-        defaultWeightCount.hashCode;
-  }
 }
 
-class ExerciseModelAdapter extends TypeAdapter<ExerciseModel> {
+final class ExerciseModelAdapter extends TypeAdapter<ExerciseModel> {
   @override
   int get typeId => 1;
 
   @override
   ExerciseModel read(BinaryReader reader) {
-    Map<dynamic, dynamic> map = reader.readMap();
+    final map = reader.readMap();
     return ExerciseModel.fromHiveMap(map);
   }
 

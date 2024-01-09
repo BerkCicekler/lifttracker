@@ -1,50 +1,50 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:lifttracker/feature/view/calendar/calendar_mixin.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lifttracker/feature/cubit/trainings_cubit.dart';
+import 'package:lifttracker/feature/view/calendar/calender_cubit.dart';
+import 'package:lifttracker/feature/view/calendar/widgets/calendar_widget/calendar_table_mixin.dart';
+import 'package:lifttracker/feature/widgets/intractable_container.dart';
+import 'package:lifttracker/product/constants/color_constants.dart';
+import 'package:lifttracker/product/constants/enums/padding_enums.dart';
+import 'package:lifttracker/product/model/training_done_model.dart';
+import 'package:lifttracker/product/utils/date_format_utils.dart';
 import 'package:table_calendar/table_calendar.dart';
+
+part 'widgets/calendar_widget/calendar_table_view.dart';
+part 'widgets/training_widget/training_widget.dart';
+part 'widgets/training_container.dart';
 
 /// Home screen class
 @RoutePage()
-class CalendarView extends StatefulWidget {
+final class CalendarView extends StatelessWidget {
   /// Home screen constructor
   const CalendarView({super.key});
 
   @override
-  State<CalendarView> createState() => _CalendarViewState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => CalenderViewCubit(DateTime.now()),
+      child: const _CalenderBody(),
+    );
+  }
 }
 
-class _CalendarViewState extends State<CalendarView> with CalendarMixin {
+class _CalenderBody extends StatelessWidget {
+  const _CalenderBody();
+
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          // ignore: inference_failure_on_instance_creation
-          TableCalendar(
-            calendarStyle: const CalendarStyle(
-              todayDecoration: BoxDecoration(
-                color: Color.fromARGB(122, 220, 251, 19),
-                shape: BoxShape.circle,
-              ),
-              selectedDecoration: BoxDecoration(
-                color: Color.fromARGB(166, 220, 251, 19),
-                shape: BoxShape.circle,
-              ),
-            ),
-            headerStyle: const HeaderStyle(
-              titleCentered: true,
-              formatButtonVisible: false,
-            ),
-            pageJumpingEnabled: true,
-            selectedDayPredicate: (day) => isSameDay(day, selectedDate),
-            onDaySelected: onDaySelected,
-            focusedDay: focusedDate,
-            onHeaderTapped: onCalendarHeaderTap,
-            firstDay: DateTime(2020),
-            lastDay: DateTime(DateTime.now().year + 1),
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        BlocBuilder<TrainingsCubit, dynamic>(
+          builder: (context, state) {
+            return const CalendarTableView();
+          },
+        ),
+        const TrainingWidget(),
+      ],
     );
   }
 }

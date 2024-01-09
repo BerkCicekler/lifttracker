@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lifttracker/product/constants/enums/padding_enums.dart';
 
 /// Container that gives basic information on home view
-class CustomInformationContainer extends StatelessWidget {
+final class CustomInformationContainer extends StatelessWidget {
   /// Create a container where u can show information about a topic with count
   /// [title] title of information
   /// [number] title's data value
@@ -34,13 +34,17 @@ class CustomInformationContainer extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
           ),
-          Text(
-            number,
-            style: TextStyle(fontSize: 45),
-          )
+          Container(
+            alignment: Alignment.centerRight,
+            padding: EdgeInsets.only(right: PaddingConstants.small.value),
+            child: Text(
+              number,
+              style: const TextStyle(fontSize: 45),
+            ),
+          ),
         ],
       ),
     );

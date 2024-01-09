@@ -1,4 +1,33 @@
 import 'package:flutter/widgets.dart';
 import 'package:lifttracker/feature/view/workout_program_editor_view/workout_program_editor_view.dart';
+import 'package:lifttracker/product/cache/hive_utility.dart';
 
-mixin WorkoutProgramEditorOperation on State<WorkoutProgramEditorView> {}
+/// Operation mixin for [WorkoutProgramEditorView] page
+mixin WorkoutProgramEditorOperation on State<WorkoutProgramEditorView> {
+  /// for providing and managing the workout model
+  late final WorkoutModelCubit workoutModelCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    workoutModelCubit = WorkoutModelCubit(
+      WorkoutModelState(
+        widget.workoutId,
+        widget.workoutModel,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _save();
+  }
+
+  void _save() {
+    CacheManager.updateWorkOutProgram(
+      index: workoutModelCubit.state.workoutCacheId,
+      model: workoutModelCubit.state.workoutModel,
+    );
+  }
+}

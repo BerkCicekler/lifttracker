@@ -56,23 +56,10 @@ class _CustomNumberEditorState extends State<CustomNumberEditor>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            width: 20,
-            height: 20,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: Colors.red),
-            ),
-            child: FittedBox(
-              child: IconButton(
-                onPressed: decrementIconOnTap,
-                icon: const Icon(
-                  Icons.remove,
-                  size: 180,
-                ),
-              ),
-            ),
+          _CustomIconButton(
+            onTap: decrementIconOnTap,
+            icon: Icons.remove,
+            color: const Color.fromARGB(255, 235, 51, 38),
           ),
           SizedBox(
             width: 35,
@@ -82,27 +69,53 @@ class _CustomNumberEditorState extends State<CustomNumberEditor>
               controller: valueController,
               onChanged: onChange,
               onEditingComplete: onEditingComplete,
-            ),
-          ),
-          Container(
-            width: 20,
-            height: 20,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: Colors.green),
-            ),
-            child: FittedBox(
-              child: IconButton(
-                onPressed: incrementIconOnTap,
-                icon: const Icon(
-                  Icons.add,
-                  size: 180,
-                ),
+              decoration: const InputDecoration(
+                border: InputBorder.none,
               ),
             ),
           ),
+          _CustomIconButton(
+            onTap: incrementIconOnTap,
+            icon: Icons.add,
+            color: const Color.fromARGB(255, 76, 216, 81),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class _CustomIconButton extends StatelessWidget {
+  const _CustomIconButton({
+    required this.onTap,
+    required this.icon,
+    required this.color,
+  });
+
+  final void Function() onTap;
+
+  final IconData icon;
+
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: 25,
+        height: 25,
+        alignment: Alignment.center,
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(255, 83, 83, 88),
+          shape: BoxShape.circle,
+        ),
+        child: FittedBox(
+          child: Icon(
+            icon,
+            color: color,
+          ),
+        ),
       ),
     );
   }

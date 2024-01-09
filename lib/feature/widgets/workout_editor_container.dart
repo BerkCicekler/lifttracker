@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lifttracker/product/constants/enums/padding_enums.dart';
 
 ///
-class WorkOutEditorContainer extends StatelessWidget {
+final class WorkOutEditorContainer extends StatelessWidget {
   /// to-do: add comment
   const WorkOutEditorContainer({super.key});
 

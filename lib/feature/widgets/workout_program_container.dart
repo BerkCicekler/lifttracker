@@ -9,7 +9,7 @@ final class CustomWorkoutProgramContainer extends StatelessWidget {
   /// this is a customize able container for displaying the workouts
   /// [actions] the Widgets show on the right side of the container
   /// [workoutModel] Workout model that will be base of this widget
-  CustomWorkoutProgramContainer({
+  const CustomWorkoutProgramContainer({
     required this.actions,
     required this.workoutModel,
     super.key,
@@ -21,22 +21,15 @@ final class CustomWorkoutProgramContainer extends StatelessWidget {
   /// Workout model that will be base of this widget
   final WorkoutModel workoutModel;
 
-  late String _exerciseCount;
-
-  late String _repCount;
-
-  void _calculateCounts() {
-    num repCountI = 0;
-    _exerciseCount = workoutModel.exercises.length.toString();
-    for (final key in workoutModel.exercises.keys) {
-      repCountI += workoutModel.exercises[key]!.defaultRepCount;
-    }
-    _repCount = repCountI.toString();
-  }
-
   @override
   Widget build(BuildContext context) {
-    _calculateCounts();
+    num setCount = 0;
+    final exerciseCount = workoutModel.exercises.length.toString();
+
+    for (final exercise in workoutModel.exercises) {
+      setCount += exercise.defaultSetCount;
+    }
+
     final width = MediaQuery.of(context).size.width;
     return Container(
       width: width * 0.95,
@@ -53,16 +46,20 @@ final class CustomWorkoutProgramContainer extends StatelessWidget {
             children: [
               Text(
                 workoutModel.workoutName,
-                style: const TextStyle(fontSize: 22, fontFamily: 'RobotoBlack'),
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontFamily: 'RobotoBlack',
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               Text(
-                'workoutProgram.exerciseCount'.tr(args: [_exerciseCount]),
+                'workoutProgram.exerciseCount'.tr(args: [exerciseCount]),
                 style: const TextStyle(
                   fontSize: 18,
                 ),
               ),
               Text(
-                'workoutProgram.repCount'.tr(args: [_repCount]),
+                'workoutProgram.setCount'.tr(args: [setCount.toString()]),
                 style: const TextStyle(
                   fontSize: 18,
                 ),

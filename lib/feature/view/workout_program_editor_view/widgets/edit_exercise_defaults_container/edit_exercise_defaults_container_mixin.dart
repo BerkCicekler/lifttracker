@@ -3,10 +3,15 @@ import 'package:lifttracker/feature/view/workout_program_editor_view/workout_pro
 import 'package:lifttracker/product/model/exercise_model.dart';
 import 'package:provider/provider.dart';
 
+/// Exercise editor container's operation mixin
+/// for handling state and functions
 mixin EditExerciseDefaultsContainerOperation
     on State<EditExerciseDefaultsContainer> {
-  late TextEditingController exerciseNameController;
+  /// exercise Name textfield's controller
+  late final TextEditingController exerciseNameController;
 
+  /// the current value of the exerciseModel
+  /// is store here
   late ExerciseModel currentExerciseModel;
 
   @override
@@ -23,24 +28,34 @@ mixin EditExerciseDefaultsContainerOperation
     exerciseNameController.dispose();
   }
 
+  /// This function will execute when a user change in exercise model
+  /// and will save the change in workout model provider
   void onValueChange({required String changeType, required double value}) {
     final valueInt = value.toInt();
     switch (changeType) {
       case 'rep':
-        currentExerciseModel.copyWith(defaultRepCount: valueInt);
+        currentExerciseModel =
+            currentExerciseModel.copyWith(defaultRepCount: valueInt);
       case 'set':
-        currentExerciseModel.copyWith(defaultSetCount: valueInt);
+        currentExerciseModel =
+            currentExerciseModel.copyWith(defaultSetCount: valueInt);
       case 'weight':
-        currentExerciseModel.copyWith(defaultWeightCount: value);
+        currentExerciseModel =
+            currentExerciseModel.copyWith(defaultWeightCount: value);
       default:
+        // unexpected
+        return;
     }
+    _save();
   }
 
   void _save() {
-    final newModel = widget.exerciseModel.copyWith();
+    // new exercise model
+    final newModel = currentExerciseModel.copyWith();
 
-    Provider.of<WorkoutModelProvider>(context)
-        .changeExercise(key: widget.exerciseKeyId, model: newModel);
-    print('save');
+    context.read<WorkoutModelCubit>().changeExercise(
+          key: widget.exerciseKeyId,
+          model: newModel,
+        );
   }
 }

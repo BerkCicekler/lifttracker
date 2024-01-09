@@ -2,12 +2,14 @@
     "home": {
         "title": "Anasayfa",
         "countWorkoutWeek": "Bu haftadaki toplam antrenman miktarı",
-        "countWorkoutMonth": "Bu aydaki toplam antrenman miktarı"
+        "countWorkoutMonth": "Bu aydaki toplam antrenman miktarı",
+                "viewAll": "Tümü"
     },
     "workoutProgram": {
         "title": "Antrenman Programlarım",
         "exerciseCount": "Toplam {} farklı hareket",
-        "repCount": "Toplam {} tekrar"
+        "setCount": "Toplam {} set",
+        "workoutName" : "Antrenman Programı Adı"
     },
     "calendar": {
         "title": "Takvimim"
@@ -16,9 +18,26 @@
         "areyousure": "Emin misin?",
         "areyousurecontext": "Bu programı silmek istediğine emin misin?"
     },
+
+    "workoutProgramEditor": {
+        "exerciseName": "Egzersiz Adı",
+        "setCount": "Set sayısı",
+        "repCount": "Tekrar sayısı",
+        "weight": "Ağırlık"
+    },
+
+    "workoutSelectionView": {
+        "selectWorkout": "Antrenman Programı Seç"
+    },
+
     "general": {
         "ok": "Tamam",
         "cancel": "İptal",
-        "save": "Kaydet"
+        "save": "Kaydet",
+        "history": "Geçmiş",
+        "view": "Görüntüle",
+        "today": "Bugün",
+        "yesterday": "Dün",
+        "tomorrow": "Yarın"
     }
 }

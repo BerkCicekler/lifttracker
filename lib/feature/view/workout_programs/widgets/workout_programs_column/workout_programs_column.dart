@@ -1,7 +1,7 @@
 part of '../../workout_programs_view.dart';
 
 /// workout program column for listing user's workout programs
-class WorkoutProgramsColumn extends StatelessWidget {
+final class WorkoutProgramsColumn extends StatelessWidget {
   /// this is a widget for listing user's workouts
   /// will list the user's all workouts with the delete and show action
   const WorkoutProgramsColumn({required this.box, super.key});
@@ -9,12 +9,24 @@ class WorkoutProgramsColumn extends StatelessWidget {
   /// workout programs box
   final Box<dynamic> box;
 
+  Future<void> _createNewWorkoutProgram(BuildContext context) async {
+    final response = await TextInputDialog.show(
+      context: context,
+      title: 'workoutProgram.workoutName'.tr(),
+      okText: 'general.ok'.tr(),
+      cancelText: 'general.cancel'.tr(),
+    );
+    if (response != null && response.isNotEmpty) {
+      await CacheManager.createWorkOutProgram(name: response);
+    }
+  }
+
   /// this function will return all the workout programs that user's created
   /// as a list of widgets created with CustomWorkoutContainer
   List<Widget> _workoutContainers() {
-    final List<Widget> widgets = [];
+    final widgets = <Widget>[];
 
-    final Map<int, WorkoutModel> map = Map<int, WorkoutModel>.from(
+    final map = Map<int, WorkoutModel>.from(
       box.toMap(),
     );
 
@@ -38,8 +50,6 @@ class WorkoutProgramsColumn extends StatelessWidget {
         );
     }
 
-    widgets.add(const CreateNewWorkoutContainer());
-
     return widgets;
   }
 
@@ -47,7 +57,12 @@ class WorkoutProgramsColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: _workoutContainers(),
+      children: [
+        ..._workoutContainers(),
+        IntractableContainer(
+          onTap: () => _createNewWorkoutProgram(context),
+        ),
+      ],
     );
   }
 }

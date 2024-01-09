@@ -8,6 +8,7 @@ import 'package:lifttracker/feature/widgets/information_container.dart';
 import 'package:lifttracker/feature/widgets/workout_done_list_tile.dart';
 import 'package:lifttracker/product/constants/color_constants.dart';
 import 'package:lifttracker/product/constants/enums/padding_enums.dart';
+import 'package:lifttracker/product/extensions/date_time_extension.dart';
 
 part 'widgets/training_status.dart';
 part 'widgets/last_trainings.dart';

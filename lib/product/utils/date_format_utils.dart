@@ -33,11 +33,9 @@ final class DateFormatterUtil {
 
   static String generateDateTextWorkoutTile(DateTime date) {
     if (date.isToday()) {
-      return 'general.today'.tr();
+      return 'general.today'.tr().substring(0, 3);
     } else if (date.isYesterday()) {
-      return 'general.yesterday'.tr();
-    } else if (date.isTomorrow()) {
-      return 'general.tomorrow'.tr();
+      return 'general.yesterday'.tr().substring(0, 3);
     } else {
       return DateFormat('d MMM').format(date);
     }

@@ -12,7 +12,7 @@ final class WorkoutProgramsColumn extends StatelessWidget {
   Future<void> _createNewWorkoutProgram(BuildContext context) async {
     final response = await TextInputDialog.show(
       context: context,
-      title: 'Workout name',
+      title: 'workoutProgram.workoutName'.tr(),
       okText: 'general.ok'.tr(),
       cancelText: 'general.cancel'.tr(),
     );

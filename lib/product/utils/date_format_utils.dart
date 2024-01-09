@@ -1,4 +1,4 @@
-import 'package:intl/intl.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:lifttracker/product/extensions/date_time_extension.dart';
 
 /// A class for generating dates as formatted values
@@ -18,15 +18,28 @@ final class DateFormatterUtil {
   /// detecting if it the date today, yesterday or a week ago
   /// if the the [date] equal to these function will return as the text.
   /// else if will return the date with a month's name
-  static String generateDateText(DateTime date) {
+  static String generateDateTextCalender(DateTime date) {
+    final dayName = DateFormat(', EEEE').format(date);
     if (date.isToday()) {
-      return 'Today';
+      return 'general.today'.tr() + dayName;
     } else if (date.isYesterday()) {
-      return 'Yesterday';
-    } else if (date.isAWeekAgo()) {
-      return 'Week ago';
+      return 'general.yesterday'.tr() + dayName;
+    } else if (date.isTomorrow()) {
+      return 'general.tomorrow'.tr() + dayName;
     } else {
       return DateFormat('EEEE, d MMM').format(date);
+    }
+  }
+
+  static String generateDateTextWorkoutTile(DateTime date) {
+    if (date.isToday()) {
+      return 'general.today'.tr();
+    } else if (date.isYesterday()) {
+      return 'general.yesterday'.tr();
+    } else if (date.isTomorrow()) {
+      return 'general.tomorrow'.tr();
+    } else {
+      return DateFormat('d MMM').format(date);
     }
   }
 

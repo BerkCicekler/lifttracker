@@ -2,12 +2,14 @@
     "home": {
         "title": "Home",
         "countWorkoutWeek": "Total Workout count of this week",
-        "countWorkoutMonth": "Total Workout count of this month"
+        "countWorkoutMonth": "Total Workout count of this month",
+        "viewAll": "View All"
     },
     "workoutProgram": {
         "title": "Workout programs",
         "exerciseCount": "Total {} different exercise",
-        "repCount": "Total {} reps"
+        "setCount": "Total {} sets",
+        "workoutName" : "Workout Name"
     },
     "calendar": {
         "title": "Calender"
@@ -17,16 +19,25 @@
         "areyousurecontext": "Are you sure you want to delete this program?"
     },
 
-        "workoutProgramEditor": {
+    "workoutProgramEditor": {
         "exerciseName": "Exercise Name",
         "setCount": "Set Count",
         "repCount": "Rep Count",
         "weight": "Weight"
     },
 
+    "workoutSelectionView": {
+        "selectWorkout": "Select a Workout"
+    },
+
     "general": {
         "ok": "Ok",
         "cancel": "Cancel",
-        "save": "Save"
+        "save": "Save",
+        "history": "History",
+        "view": "View",
+        "today": "Today",
+        "yesterday": "Yesterday",
+        "tomorrow": "Tomorrow"
     }
 }

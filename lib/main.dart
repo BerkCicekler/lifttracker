@@ -21,6 +21,7 @@ final class _MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
+      lazy: false,
       create: (_) => TrainingsCubit()..fetchAllTrainings(),
       child: MaterialApp.router(
         title: 'Lift Tracker',

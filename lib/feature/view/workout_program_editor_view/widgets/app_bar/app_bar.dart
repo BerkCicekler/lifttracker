@@ -12,7 +12,11 @@ final class WorkoutProgramEditorAppBar extends StatelessWidget
   Widget build(BuildContext context) {
     final workoutModelCubit = context.read<WorkoutModelCubit>();
     return AppBar(
-      title: Text(workoutModelCubit.state.workoutModel.workoutName),
+      scrolledUnderElevation: 0,
+      title: Text(
+        workoutModelCubit.state.workoutModel.workoutName,
+        style: const TextStyle(fontWeight: FontWeight.bold),
+      ),
       actions: [
         IconButton(
           icon: const Icon(CupertinoIcons.restart),

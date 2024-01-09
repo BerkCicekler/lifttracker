@@ -7,14 +7,19 @@ final class TrainingsCubit extends Cubit<Map<DateTime, TrainingModel>> {
   /// initial value will be empty map
   TrainingsCubit() : super({});
 
+  List<DateTime> _dateTimes = [];
+
+  List<DateTime> get dateTimes => _dateTimes;
+
   Future<void> fetchAllTrainings() async {
     final allTrainings = await CacheManager.getAllTrainings();
     final newState = <DateTime, TrainingModel>{};
     for (var i = 0; i < allTrainings.length; i++) {
-      print('sex');
+      _dateTimes.add(allTrainings[i].date);
+
       newState[allTrainings[i].date] = allTrainings[i];
     }
-    print(newState);
+    _dateTimes = _dateTimes.reversed.toList();
     emit(newState);
   }
 }

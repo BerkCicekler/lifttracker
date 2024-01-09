@@ -18,7 +18,11 @@ final class DashBoardView extends StatelessWidget {
     return AutoTabsScaffold(
       appBarBuilder: (context, tabsRouter) {
         return AppBar(
-          title: Text(AppbarTitles.appBarTitles[tabsRouter.activeIndex].tr()),
+          scrolledUnderElevation: 0,
+          title: Text(
+            AppbarTitles.appBarTitles[tabsRouter.activeIndex].tr(),
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
         );
       },
       routes: const [CalendarRoute(), HomeRoute(), WorkoutProgramsRoute()],

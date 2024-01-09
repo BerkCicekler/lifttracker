@@ -18,6 +18,7 @@ class TrainingModel {
   TrainingModel({
     required WorkoutModel? model,
     required TrainingMap? training,
+    required this.name,
     required this.note,
     required this.date,
   }) {
@@ -55,8 +56,12 @@ class TrainingModel {
   @HiveField(2)
   final DateTime date;
 
+  @HiveField(3)
+  final String name;
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'name': name,
       'note': note,
       'date': date.millisecondsSinceEpoch,
       'training': training,
@@ -75,6 +80,7 @@ class TrainingModel {
     }
 
     return TrainingModel(
+      name: map['name'] as String,
       model: null,
       training: tempTraining,
       note: map['note'] as String,

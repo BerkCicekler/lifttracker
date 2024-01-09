@@ -13,6 +13,15 @@ mixin CalendarTableViewOperation on State<CalendarTableView> {
   /// default focused date time
   DateTime focusedDate = DateTime.now();
 
+  /// will contain the cubit from app level
+  late final TrainingsCubit trainingsCubit;
+
+  @override
+  void initState() {
+    super.initState();
+    trainingsCubit = context.read<TrainingsCubit>();
+  }
+
   /// method will run every time user select a new day from calender
   void onDaySelected(DateTime selectedDay, DateTime focusedDate) {
     selectedDate = selectedDay;
@@ -42,8 +51,6 @@ mixin CalendarTableViewOperation on State<CalendarTableView> {
 
   List<dynamic> eventLoader(DateTime day) {
     final pureDate = DateTime(day.year, day.month, day.day);
-    return context.read<TrainingsCubit>().state[pureDate] != null
-        ? ['yes']
-        : [];
+    return trainingsCubit.state[pureDate] != null ? ['yes'] : [];
   }
 }

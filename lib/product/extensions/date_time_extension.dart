@@ -17,4 +17,8 @@ extension DateTimeExtension on DateTime {
   bool isToday() {
     return isSameDate(DateTime.now());
   }
+
+  bool isTomorrow() {
+    return isSameDate(DateTime.now().subtract(const Duration(days: -1)));
+  }
 }

@@ -10,8 +10,6 @@ class CalenderViewCubit extends Cubit<DateTime> {
   CalenderViewCubit(DateTime date) : super(date);
 
   void dateSelected(DateTime newDate) {
-    print('date');
-    print(newDate);
     emit(newDate);
   }
 
@@ -22,7 +20,8 @@ class CalenderViewCubit extends Cubit<DateTime> {
     if (model != null) {
       await CacheManager.saveTraining(
         model: TrainingModel(
-          model: model as WorkoutModel,
+          name: (model as WorkoutModel).workoutName,
+          model: model,
           training: null,
           note: '',
           date: DateTime(state.year, state.month, state.day),

@@ -1,33 +1,16 @@
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'package:lifttracker/product/constants/color_constants.dart';
-import 'package:lifttracker/product/constants/enums/padding_enums.dart';
-import 'package:lifttracker/product/model/workout_model.dart';
+part of '../calendar_view.dart';
 
-///
-final class CustomWorkoutProgramContainer extends StatelessWidget {
-  /// this is a customize able container for displaying the workouts
-  /// [actions] the Widgets show on the right side of the container
-  /// [workoutModel] Workout model that will be base of this widget
-  const CustomWorkoutProgramContainer({
-    required this.actions,
-    required this.workoutModel,
-    super.key,
-  });
+final class _TrainingContainer extends StatelessWidget {
+  const _TrainingContainer({required this.model});
 
-  /// the user actions shows up on the right side of the container
-  final List<Widget> actions;
-
-  /// Workout model that will be base of this widget
-  final WorkoutModel workoutModel;
+  final TrainingModel model;
 
   @override
   Widget build(BuildContext context) {
+    final exerciseCount = model.training.length.toString();
     num setCount = 0;
-    final exerciseCount = workoutModel.exercises.length.toString();
-
-    for (final exercise in workoutModel.exercises) {
-      setCount += exercise.defaultSetCount;
+    for (final exercise in model.training.keys) {
+      setCount += model.training[exercise]!.length;
     }
 
     final width = MediaQuery.of(context).size.width;
@@ -45,7 +28,7 @@ final class CustomWorkoutProgramContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                workoutModel.workoutName,
+                model.name,
                 style: const TextStyle(
                   fontSize: 22,
                   fontFamily: 'RobotoBlack',
@@ -67,7 +50,6 @@ final class CustomWorkoutProgramContainer extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          ...actions,
         ],
       ),
     );

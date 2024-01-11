@@ -24,7 +24,7 @@ final class WorkoutDoneListTile extends StatelessWidget {
   final evenBackgroundColor = const Color.fromARGB(87, 158, 158, 158);
 
   void _onTap() {
-    print('yes');
+    ///TODO
   }
 
   @override

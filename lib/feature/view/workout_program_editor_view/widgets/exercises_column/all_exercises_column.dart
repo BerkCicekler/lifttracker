@@ -8,23 +8,23 @@ final class AllExercisesColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<WorkoutModelCubit, WorkoutModelState>(
+    return BlocBuilder<WorkoutModelCubit, WorkoutModel>(
       builder: (context, state) {
         return ReorderableListView(
-          //TODO: ordering is wrong
+          //TODO: reorderableList working | (99.999% not cause of me)
           onReorder: (oldIndex, newIndex) =>
               context.read<WorkoutModelCubit>().change2ExercisesIndex(
                     firstIndex: oldIndex,
                     secondIndex: newIndex,
                   ),
           children: [
-            for (var i = 0; i < state.workoutModel.exercises.length; i++)
+            for (var i = 0; i < state.exercises.length; i++)
               ListTile(
                 contentPadding: EdgeInsets.zero,
                 key: ValueKey(i),
                 subtitle: EditExerciseDefaultsContainer(
                   exerciseKeyId: i,
-                  exerciseModel: state.workoutModel.exercises[i],
+                  exerciseModel: state.exercises[i],
                 ),
               ),
           ],

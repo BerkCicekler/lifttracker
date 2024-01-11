@@ -11,10 +11,7 @@ mixin WorkoutProgramEditorOperation on State<WorkoutProgramEditorView> {
   void initState() {
     super.initState();
     workoutModelCubit = WorkoutModelCubit(
-      WorkoutModelState(
-        widget.workoutId,
-        widget.workoutModel,
-      ),
+      model: widget.workoutModel,
     );
   }
 
@@ -26,8 +23,8 @@ mixin WorkoutProgramEditorOperation on State<WorkoutProgramEditorView> {
 
   void _save() {
     CacheManager.updateWorkOutProgram(
-      index: workoutModelCubit.state.workoutCacheId,
-      model: workoutModelCubit.state.workoutModel,
+      index: widget.workoutId,
+      model: workoutModelCubit.state,
     );
   }
 }

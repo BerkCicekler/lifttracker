@@ -2,26 +2,29 @@
 part of 'workout_program_editor_view.dart';
 
 /// Cubit state management model for Workout program editor page
-final class WorkoutModelCubit extends Cubit<WorkoutModelState> {
+final class WorkoutModelCubit extends Cubit<WorkoutModel> {
   /// base constructor
   /// [model] argument should be [WorkoutModelState] with the
   /// opened Workout
-  WorkoutModelCubit(WorkoutModelState model) : super(model) {
-    _firstExerciseList = List.from(model.workoutModel.exercises);
+  WorkoutModelCubit({
+    required WorkoutModel model,
+  }) : super(model) {
+    _firstExerciseList = List.from(model.exercises);
   }
 
   /// first workout model
   late final List<ExerciseModel> _firstExerciseList;
 
-  WorkoutModel get _workoutModel => state.workoutModel;
+  WorkoutModel get _workoutModel => state;
 
   /// this function will change the given [model] exercise model
-  /// on specified index in [_workoutModel]'s exercise map
+  /// on specified index in [state]'s exercise map
   void changeExercise({required int key, required ExerciseModel model}) {
-    _workoutModel.exercises[key] = model;
+    final tempExercises = state.exercises.toList();
+    tempExercises[key] = model;
     emit(
       state.copyWith(
-        workoutModel: _workoutModel,
+        exercises: tempExercises,
       ),
     );
   }
@@ -56,17 +59,19 @@ final class WorkoutModelCubit extends Cubit<WorkoutModelState> {
   /// this function will add a new exercise on [_workoutModel],s exercise
   /// map with given [exerciseName]
   void addExercise({required String exerciseName}) {
-    _workoutModel.exercises.add(
-      ExerciseModel(
-        exerciseName: exerciseName,
-        defaultSetCount: 1,
-        defaultRepCount: 1,
-        defaultWeightCount: 1.25,
-      ),
-    );
+    final tempExercises = state.exercises
+      ..toList()
+      ..add(
+        ExerciseModel(
+          exerciseName: exerciseName,
+          defaultSetCount: 1,
+          defaultRepCount: 1,
+          defaultWeightCount: 1.25,
+        ),
+      );
     emit(
       state.copyWith(
-        workoutModel: _workoutModel,
+        exercises: tempExercises,
       ),
     );
   }
@@ -76,17 +81,19 @@ final class WorkoutModelCubit extends Cubit<WorkoutModelState> {
     required int firstIndex,
     required int secondIndex,
   }) {
+    final tempExercises = state.exercises.toList();
+
     if (firstIndex < secondIndex) {
       secondIndex--;
     }
 
-    final tile = _workoutModel.exercises.removeAt(firstIndex);
+    final tile = tempExercises.removeAt(firstIndex);
 
-    _workoutModel.exercises.insert(secondIndex, tile);
+    tempExercises.insert(secondIndex, tile);
 
     emit(
       state.copyWith(
-        workoutModel: _workoutModel,
+        exercises: tempExercises,
       ),
     );
   }
@@ -99,38 +106,8 @@ final class WorkoutModelCubit extends Cubit<WorkoutModelState> {
     _workoutModel.exercises.addAll(_firstExerciseList);
     emit(
       state.copyWith(
-        workoutModel: _workoutModel,
+        exercises: _firstExerciseList,
       ),
     );
   }
-}
-
-/// State holder for [WorkoutModelCubit]
-final class WorkoutModelState extends Equatable {
-  /// base constructor
-  /// [workoutCacheId] Cache key value of saved workout model
-  /// [workoutModel] model will provide
-  const WorkoutModelState(this.workoutCacheId, this.workoutModel);
-
-  /// The key id of the exercise saved in cache
-  final int workoutCacheId;
-
-  final WorkoutModel workoutModel;
-
-  WorkoutModelState copyWith({
-    int? workoutCacheId,
-    WorkoutModel? workoutModel,
-  }) {
-    return WorkoutModelState(
-      workoutCacheId ?? this.workoutCacheId,
-      workoutModel ?? this.workoutModel,
-    );
-  }
-
-  @override
-  List<Object?> get props => [
-        workoutCacheId,
-        workoutModel,
-        workoutModel.exercises,
-      ];
 }

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:lifttracker/feature/view/all_trainings/all_trainings_view.dart';
 import 'package:lifttracker/feature/view/settings/settings_view.dart';
 import 'package:lifttracker/feature/view/calendar/calendar_view.dart';
 import 'package:lifttracker/feature/view/dashboard/dashboard_view.dart';
@@ -30,5 +31,6 @@ final class AppRouter extends _$AppRouter {
         ),
         AutoRoute(page: WorkoutProgramEditorRoute.page),
         AutoRoute(page: WorkoutSelectionRoute.page),
+        AutoRoute(page: AllTrainingsRoute.page),
       ];
 }

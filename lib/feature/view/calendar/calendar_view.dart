@@ -38,14 +38,13 @@ class _CalenderBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.watch<TrainingsCubit>();
+    // noting should be const
+    // giving const causing a problem
+    // somehow widgets use the old state
     return Column(
       children: [
-        BlocBuilder<TrainingsCubit, dynamic>(
-          builder: (context, state) {
-            return const CalendarTableView();
-          },
-        ),
-        const TrainingWidget(),
+        CalendarTableView(),
+        TrainingWidget(),
       ],
     );
   }

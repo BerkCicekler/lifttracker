@@ -30,6 +30,7 @@ final class WorkoutDoneListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      minLeadingWidth: 40,
       titleTextStyle:
           const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
       leadingAndTrailingTextStyle:

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:lifttracker/feature/settings/settings_view.dart';
+import 'package:lifttracker/feature/view/settings/settings_view.dart';
 import 'package:lifttracker/feature/view/calendar/calendar_view.dart';
 import 'package:lifttracker/feature/view/dashboard/dashboard_view.dart';
 import 'package:lifttracker/feature/view/home/home_view.dart';

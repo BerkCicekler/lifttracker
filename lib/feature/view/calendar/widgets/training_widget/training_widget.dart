@@ -15,7 +15,7 @@ final class TrainingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CalenderViewCubit, DateTime>(
       builder: (context, date) {
-        final pureDate = DateTime(date.year, date.month, date.day);
+        final pureDate = date.toPureDate();
         return Column(
           children: [
             _SelectedDateText(date: pureDate),

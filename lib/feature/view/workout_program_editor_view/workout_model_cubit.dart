@@ -128,5 +128,9 @@ final class WorkoutModelState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [workoutCacheId, workoutModel];
+  List<Object?> get props => [
+        workoutCacheId,
+        workoutModel,
+        workoutModel.exercises,
+      ];
 }

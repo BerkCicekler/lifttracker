@@ -60,6 +60,7 @@ final class _WorkoutsDoneListView extends StatelessWidget {
     final trainings = context.watch<TrainingsCubit>().state;
     final dateTimes = context.read<TrainingsCubit>().dateTimes;
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: (dateTimes.length > 4 ? 4 : dateTimes.length),
       itemBuilder: (_, index) {
         return WorkoutDoneListTile(

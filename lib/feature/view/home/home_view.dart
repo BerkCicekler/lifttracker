@@ -21,6 +21,7 @@ final class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<TrainingsCubit>();
     return Padding(
       padding: EdgeInsets.all(PaddingConstants.page.value),
       child: const Column(

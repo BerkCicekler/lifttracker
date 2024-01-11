@@ -8,6 +8,7 @@ import 'package:lifttracker/feature/view/calendar/widgets/calendar_widget/calend
 import 'package:lifttracker/feature/widgets/intractable_container.dart';
 import 'package:lifttracker/product/constants/color_constants.dart';
 import 'package:lifttracker/product/constants/enums/padding_enums.dart';
+import 'package:lifttracker/product/extensions/date_time_extension.dart';
 import 'package:lifttracker/product/model/training_done_model.dart';
 import 'package:lifttracker/product/utils/date_format_utils.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -36,14 +37,14 @@ class _CalenderBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<TrainingsCubit>();
+    // noting should be const
+    // giving const causing a problem
+    // somehow widgets use the old state
     return Column(
       children: [
-        BlocBuilder<TrainingsCubit, dynamic>(
-          builder: (context, state) {
-            return const CalendarTableView();
-          },
-        ),
-        const TrainingWidget(),
+        CalendarTableView(),
+        TrainingWidget(),
       ],
     );
   }

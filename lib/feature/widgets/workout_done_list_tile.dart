@@ -24,12 +24,13 @@ final class WorkoutDoneListTile extends StatelessWidget {
   final evenBackgroundColor = const Color.fromARGB(87, 158, 158, 158);
 
   void _onTap() {
-    print('yes');
+    ///TODO
   }
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      minLeadingWidth: 40,
       titleTextStyle:
           const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
       leadingAndTrailingTextStyle:

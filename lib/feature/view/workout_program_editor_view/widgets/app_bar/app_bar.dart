@@ -14,7 +14,7 @@ final class WorkoutProgramEditorAppBar extends StatelessWidget
     return AppBar(
       scrolledUnderElevation: 0,
       title: Text(
-        workoutModelCubit.state.workoutModel.workoutName,
+        workoutModelCubit.state.workoutName,
         style: const TextStyle(fontWeight: FontWeight.bold),
       ),
       actions: [

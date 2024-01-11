@@ -25,7 +25,10 @@ final class _LastTrainings extends StatelessWidget {
 final class _AboveListViewHeader extends StatelessWidget {
   const _AboveListViewHeader();
 
-  void _onViewAllTap() {}
+  void _onViewAllTap(BuildContext context) {
+    print("yes");
+    context.router.push(const AllTrainingsRoute());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,8 @@ final class _AboveListViewHeader extends StatelessWidget {
         RichText(
           text: TextSpan(
             text: 'home.viewAll'.tr(),
-            recognizer: TapGestureRecognizer()..onTap = _onViewAllTap,
+            recognizer: TapGestureRecognizer()
+              ..onTap = () => _onViewAllTap(context),
             style: const TextStyle(
               color: ColorConstants.lightGreen,
               fontSize: 18,
@@ -60,6 +64,7 @@ final class _WorkoutsDoneListView extends StatelessWidget {
     final trainings = context.watch<TrainingsCubit>().state;
     final dateTimes = context.read<TrainingsCubit>().dateTimes;
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: (dateTimes.length > 4 ? 4 : dateTimes.length),
       itemBuilder: (_, index) {
         return WorkoutDoneListTile(

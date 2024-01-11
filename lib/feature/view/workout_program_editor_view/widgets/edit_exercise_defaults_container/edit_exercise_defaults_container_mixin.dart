@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lifttracker/feature/view/workout_program_editor_view/workout_program_editor_view.dart';
 import 'package:lifttracker/product/model/exercise_model.dart';
-import 'package:provider/provider.dart';
 
 /// Exercise editor container's operation mixin
 /// for handling state and functions

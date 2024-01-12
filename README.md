@@ -6,7 +6,7 @@ A mobile application for creating new workout programs and save users workouts d
 Create custom workout programs <br>
 Save trainings to calender via created workouts <br>
 View past trainings <br>
-Edit Trainings (X)
+Edit Trainings (X) <br>
 Multiple language support
 
 ## TO DO

@@ -7,6 +7,7 @@ Create custom workout programs <br>
 Save trainings to calender via created workouts <br>
 View past trainings <br>
 Edit Trainings (X)
+Multiple language support
 
 ## TO DO
 1. Editing a trainings datas(set,rep,weight) I gave up on this feature <br>

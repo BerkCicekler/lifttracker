@@ -3,11 +3,11 @@
 A mobile application for creating new workout programs and save users workouts daily how much did they lift for how many sets etc.
 
 # Features
-Create custom workout programs <br>
-Save trainings to calender via created workouts <br>
-View past trainings <br>
-Edit Trainings (X) <br>
-Multiple language support
+- [X] Create custom workout programs 
+- [X] Save trainings to calender via created workouts 
+- [X] View past trainings 
+- [ ] Edit Trainings 
+- [X] Multiple language support
 
 ## TO DO
 1. Editing a trainings datas(set,rep,weight) I gave up on this feature <br>
@@ -35,7 +35,7 @@ because i couln't find a good UI design idea
 
 
 ### Images
-<img src="/photos/calender_page.png" width="350px" alt=""> <img src="/photos/home_page.png" width="350px" alt=""> <img src="/photos/workout_programs_page.png" width="350px" alt=""> 
+<img src="/photos/calender_page.png" width="275px" alt=""> <img src="/photos/home_page.png" width="275px" alt=""> <img src="/photos/workout_programs_page.png" width="275px" alt=""> 
 
 https://github.com/BerkCicekler/lifttracker/assets/140281815/caaad628-68da-41a2-8a3c-926a6db61208
 
